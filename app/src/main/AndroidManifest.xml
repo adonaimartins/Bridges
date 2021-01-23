@@ -14,9 +14,10 @@
         <activity android:name=".Bays" />
         <activity android:name=".Girders" />
         <activity android:name=".Decks" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".Bridge" />
-        <activity android:name=".Lobby" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Lobby">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
