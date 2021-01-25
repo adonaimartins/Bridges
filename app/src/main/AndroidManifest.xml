@@ -9,15 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bridges">
-        <activity android:name=".Stiffener"></activity>
+
+        <activity android:name=".Lobby" />
+        <activity android:name=".Stiffener" />
         <activity android:name=".BaySingle" />
-        <activity android:name=".Bays" />
+        <activity android:name=".Bays" android:screenOrientation="landscape"/>
         <activity android:name=".Girders" />
         <activity android:name=".Decks" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Bridge" />
-        <activity android:name=".Lobby">
-
+        <activity android:name=".GirderContent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
