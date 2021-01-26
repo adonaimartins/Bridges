@@ -210,7 +210,8 @@
                     android:layout_column="3"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:editable="false" />
 
                 <Button
                     android:id="@+id/button3"

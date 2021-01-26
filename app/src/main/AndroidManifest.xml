@@ -9,16 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bridges">
-
+        <activity android:name=".Web_Defects"></activity>
+        <activity android:name=".Web_Defects_Lobby" />
+        <activity
+            android:name=".Web_Activity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".Stiffener_Content" />
         <activity android:name=".Lobby" />
         <activity android:name=".Stiffener" />
-        <activity android:name=".BaySingle" />
-        <activity android:name=".Bays" android:screenOrientation="landscape"/>
+        <activity
+            android:name=".Bays"
+            android:screenOrientation="landscape" />
         <activity android:name=".Girders" />
         <activity android:name=".Decks" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Bridge" />
-        <activity android:name=".GirderContent" >
+        <activity android:name=".GirderContent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
