@@ -66,7 +66,7 @@
         <activity android:name=".Stiffener_Defects_Form" android:parentActivityName=".Stiffener_Defects_Lobby"/>
         <activity android:name=".Stiffener_Defects_Lobby" android:parentActivityName=".Stiffener_Lobby"/>
 
-        <activity android:name=".Web_Defects" android:parentActivityName=".Web_Defects_Lobby"/>
+        <activity android:name=".Web_Defects_Form" android:parentActivityName=".Web_Defects_Lobby"/>
         <activity android:name=".Web_Defects_Lobby" android:parentActivityName=".Web_Form"/>
         <activity android:name=".Web_Form" android:parentActivityName=".GirderContent"/>
 

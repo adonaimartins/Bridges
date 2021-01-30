@@ -26,6 +26,8 @@ public class Girders_Lobby extends AppCompatActivity {
     public void deleteGirder(View view) {
     }
     public void submitGirder(View view) {
+        Intent intent = new Intent(this, Decks_Lobby.class);
+        startActivity(intent);
     }
 
 }

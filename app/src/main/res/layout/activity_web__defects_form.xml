@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Web_Defects">
+    tools:context=".Web_Defects_Form">
 
     <TextView
         android:id="@+id/textView68"
@@ -193,6 +193,7 @@
         android:id="@+id/button24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="submit"
         android:text="Add and return"
         tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="470dp" />

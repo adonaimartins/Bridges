@@ -43,10 +43,12 @@
         android:text="Stiffener Data"
         tools:layout_editor_absoluteX="81dp"
         tools:layout_editor_absoluteY="160dp" />
+
     <Button
         android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="launchRivets"
         android:text="Rivets"
         tools:layout_editor_absoluteX="79dp"
         tools:layout_editor_absoluteY="194dp" />
@@ -55,6 +57,7 @@
         android:id="@+id/button12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="launchDefects"
         android:text="defects"
         tools:layout_editor_absoluteX="222dp"
         tools:layout_editor_absoluteY="193dp" />
@@ -72,6 +75,7 @@
         android:id="@+id/button17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="launch_L_Angle"
         android:text="L-Angle"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="318dp" />
@@ -80,6 +84,7 @@
         android:id="@+id/button19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="launch_T_Angle"
         android:text="T-Angle"
         tools:layout_editor_absoluteX="190dp"
         tools:layout_editor_absoluteY="320dp" />
@@ -88,6 +93,7 @@
         android:id="@+id/button20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="launchB2B_L_Angle"
         android:text="Back to Back L-Angle"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="391dp" />
@@ -96,6 +102,7 @@
         android:id="@+id/button21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="launchGussetPlate"
         android:text="Gusset Plate"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="463dp" />
@@ -112,6 +119,7 @@
         android:id="@+id/button22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="submit"
         android:text="Save and Go to Bays"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="651dp" />
