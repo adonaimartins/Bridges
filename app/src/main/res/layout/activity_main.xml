@@ -85,6 +85,7 @@
             android:layout_marginLeft="80dp"
             android:layout_marginRight="40dp"
             android:layout_weight="1"
+            android:onClick="logIn"
             android:text="Button" />
 
     </LinearLayout>

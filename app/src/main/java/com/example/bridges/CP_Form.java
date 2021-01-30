@@ -6,17 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
-
+public class CP_Form extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_c_p__form);
     }
 
-    public void logIn(View view) {
-        Intent intent = new Intent(this, Bridges_Lobby.class);
+    public void next(View view) {
+        Intent intent = new Intent(this, CP_Lobby.class);
         startActivity(intent);
     }
 }

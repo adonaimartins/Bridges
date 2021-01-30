@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Web_Defects">
+    tools:context=".Stiffener_Defects_Form">
+
+
 
     <TextView
         android:id="@+id/textView68"
@@ -24,15 +26,27 @@
         android:text="Girder1"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="72dp" />
+    <TextView
+        android:id="@+id/textView71"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Stiffener0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView61"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Web"
+        android:text="Stiffener Defects"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="66dp" />
+        tools:layout_editor_absoluteY="65dp" />
+
     <TextView
         android:id="@+id/textView58"
         android:layout_width="wrap_content"
@@ -52,43 +66,26 @@
         android:id="@+id/textView57"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Length"
+        android:text="Leg"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="178dp" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName15"
-        android:layout_width="75dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="178dp" />
+
     <Spinner
         android:id="@+id/spinner9"
         android:layout_width="81dp"
         android:layout_height="27dp"
-        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="178dp" />
-
 
     <TextView
         android:id="@+id/textView62"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="End Length"
+        android:text="Measurement From"
         tools:layout_editor_absoluteX="32dp"
         tools:layout_editor_absoluteY="231dp" />
-    <EditText
-        android:id="@+id/editTextTextPersonName14"
-        android:layout_width="76dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="231dp" />
+
     <Spinner
         android:id="@+id/spinner10"
         android:layout_width="81dp"
@@ -100,7 +97,7 @@
         android:id="@+id/textView66"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Length"
+        android:text="Start Length"
         tools:layout_editor_absoluteX="32dp"
         tools:layout_editor_absoluteY="273dp" />
     <EditText
@@ -123,7 +120,7 @@
         android:id="@+id/textView63"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Height"
+        android:text="End Length"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="327dp" />
     <EditText
@@ -145,7 +142,7 @@
         android:id="@+id/textView64"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="End Height"
+        android:text="Width"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="377dp" />
     <EditText
@@ -169,7 +166,7 @@
         android:id="@+id/textView67"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Height"
+        android:text="Depth"
         tools:layout_editor_absoluteX="31dp"
         tools:layout_editor_absoluteY="415dp" />
     <EditText
@@ -195,9 +192,7 @@
         android:layout_height="wrap_content"
         android:text="Add and return"
         tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="470dp" />
-
-
+        tools:layout_editor_absoluteY="500dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
