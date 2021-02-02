@@ -9,68 +9,150 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bridges">
-
-        <activity android:name=".Angle_Defects_Form" android:parentActivityName=".Angle_Defects_Lobby"/>
-        <activity android:name=".Angle_Rivets_Defects_Form" android:parentActivityName="Angle_Rivets_Defects_Lobby" />
-        <activity android:name=".Angle_Defects_Lobby" android:parentActivityName=".Angle_Lobby" />
-        <activity android:name=".Angle_Rivets_Defects_Lobby" android:parentActivityName=".Angle_Lobby"/>
-        <activity android:name=".Angle_Lobby" android:parentActivityName="Angle_Form" />
-        <activity android:name=".Angle_Form" android:parentActivityName="GirderContent"/>
-
-        <activity android:name=".Bridge_Form" android:parentActivityName=".Bridges_Lobby"/>
-        <activity android:name=".Bridges_Lobby" android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".Bays_Lobby" android:screenOrientation="landscape" android:parentActivityName=".GirderContent"/>
-
-        <activity android:name=".B2B_L_Angle_Rivets_Defects_Lobby" android:parentActivityName=".B2B_L_Angle_Form" />
-        <activity android:name=".B2B_L_Angle_Rivets_Defects_Form" android:parentActivityName=".B2B_L_Angle_Rivets_Defects_Lobby" />
-        <activity android:name=".B2B_L_Angle_Form" android:parentActivityName=".Stiffener_Lobby"/>
-
-        <activity android:name=".CP_List_Lobby" android:parentActivityName=".GirderContent" android:screenOrientation="landscape"></activity>
-        <activity android:name=".CP_Form" android:parentActivityName=".CP_List_Lobby" />
-        <activity android:name=".CP_Rivets_Defects_Lobby" android:parentActivityName=".CP_Lobby"/>
-        <activity android:name=".CP_Rivets_Defects_Form" android:parentActivityName=".CP_Defects_Lobby" />
-        <activity android:name=".CP_Lobby" android:parentActivityName=".CP_Form" />
-        <activity android:name=".CP_Defects_Lobby" android:parentActivityName=".CP_Lobby"/>
-        <activity android:name=".CP_Defects_Form" android:parentActivityName=".CP_Defects_Lobby"/>
-
-        <activity android:name=".Decks_Lobby" android:parentActivityName=".Bridge_Form"/>
-
-        <activity android:name=".Flange_Form" android:parentActivityName=".GirderContent"/>
-        <activity android:name=".Flange_Rivets_Defects_Lobby" android:parentActivityName=".Flange_Lobby"/>
-        <activity android:name=".Flange_Rivets_Defects_Form" android:parentActivityName=".Flange_Rivets_Defects_Lobby" />
-        <activity android:name=".Flange_Lobby" android:parentActivityName=".Flange_Form"/>
-        <activity android:name=".Flange_Defects_Lobby" android:parentActivityName=".Flange_Lobby"/>
-        <activity android:name=".Flange_Defects_Form" android:parentActivityName=".Flange_Defects_Lobby" />
-
-        <activity android:name=".Girders_Lobby" android:parentActivityName=".Decks_Lobby" />
-        <activity android:name=".GirderContent" android:parentActivityName=".Girders_Lobby"/>
-
-        <activity android:name=".Gusset_Plates_Rivets_Defects_Lobby" android:parentActivityName=".Gusset_Plates_Form" />
-        <activity android:name=".Gusset_Plates_Rivets_Defects_Form"  android:parentActivityName=".Gusset_Plates_Rivets_Defects_Lobby"/>
-        <activity android:name=".Gusset_Plates_Form" android:parentActivityName=".Stiffener_Lobby" />
-
-        <activity android:name=".T_Angle_Rivets_Defects_Lobby" android:parentActivityName=".T_Angle_Form" />
-        <activity android:name=".T_Angle_Rivets_Defects_Form" android:parentActivityName="T_Angle_Rivets_Defects_Lobby"/>
-        <activity android:name=".T_Angle_Form" android:parentActivityName=".Stiffener_Lobby"/>
-
-        <activity android:name=".L_Angle_Rivets_Defects_Form" android:parentActivityName="L_Angle_Rivets_Defects_Lobby"/>
-        <activity android:name=".L_Angle_Rivets_Defects_Lobby" android:parentActivityName=".L_Angle_Form"/>
-        <activity android:name=".L_Angle_Form" android:parentActivityName=".Stiffener_Lobby"/>
-
-        <activity android:name=".Stiffener_Form" android:parentActivityName=".Bays_Lobby"/>
-        <activity android:name=".Stiffener_Lobby" android:parentActivityName=".Stiffener_Form" />
-        <activity android:name=".Stiffener_Rivets_Defects_Form" android:parentActivityName=".Stiffener_Rivets_Defects_Lobby"/>
-        <activity android:name=".Stiffener_Rivets_Defects_Lobby" android:parentActivityName=".Stiffener_Rivets_Form" />
-        <activity android:name=".Stiffener_Rivets_Form" android:parentActivityName=".Stiffener_Lobby" />
-        <activity android:name=".Stiffener_Defects_Form" android:parentActivityName=".Stiffener_Defects_Lobby"/>
-        <activity android:name=".Stiffener_Defects_Lobby" android:parentActivityName=".Stiffener_Lobby"/>
-
-        <activity android:name=".Web_Defects_Form" android:parentActivityName=".Web_Defects_Lobby"/>
-        <activity android:name=".Web_Defects_Lobby" android:parentActivityName=".Web_Form"/>
-        <activity android:name=".Web_Form" android:parentActivityName=".GirderContent"/>
-
-
+        <activity android:name=".Girder_Form" android:parentActivityName=".Girders_Lobby"></activity>
+        <activity
+            android:name=".Angle_Defects_Form"
+            android:parentActivityName=".Angle_Defects_Lobby" />
+        <activity
+            android:name=".Angle_Rivets_Defects_Form"
+            android:parentActivityName=".Angle_Rivets_Defects_Lobby" />
+        <activity
+            android:name=".Angle_Defects_Lobby"
+            android:parentActivityName=".Angle_Lobby" />
+        <activity
+            android:name=".Angle_Rivets_Defects_Lobby"
+            android:parentActivityName=".Angle_Lobby" />
+        <activity
+            android:name=".Angle_Lobby"
+            android:parentActivityName=".Angle_Form" />
+        <activity
+            android:name=".Angle_Form"
+            android:parentActivityName=".GirderContent" />
+        <activity
+            android:name=".Bridge_Form"
+            android:parentActivityName=".Bridges_Lobby" />
+        <activity
+            android:name=".Bridges_Lobby"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Bays_Lobby"
+            android:parentActivityName=".GirderContent"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".B2B_L_Angle_Rivets_Defects_Lobby"
+            android:parentActivityName=".B2B_L_Angle_Form" />
+        <activity
+            android:name=".B2B_L_Angle_Rivets_Defects_Form"
+            android:parentActivityName=".B2B_L_Angle_Rivets_Defects_Lobby" />
+        <activity
+            android:name=".B2B_L_Angle_Form"
+            android:parentActivityName=".Stiffener_Lobby" />
+        <activity
+            android:name=".CP_List_Lobby"
+            android:parentActivityName=".GirderContent"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".CP_Form"
+            android:parentActivityName=".CP_List_Lobby" />
+        <activity
+            android:name=".CP_Rivets_Defects_Lobby"
+            android:parentActivityName=".CP_Lobby" />
+        <activity
+            android:name=".CP_Rivets_Defects_Form"
+            android:parentActivityName=".CP_Defects_Lobby" />
+        <activity
+            android:name=".CP_Lobby"
+            android:parentActivityName=".CP_Form" />
+        <activity
+            android:name=".CP_Defects_Lobby"
+            android:parentActivityName=".CP_Lobby" />
+        <activity
+            android:name=".CP_Defects_Form"
+            android:parentActivityName=".CP_Defects_Lobby" />
+        <activity
+            android:name=".Decks_Lobby"
+            android:parentActivityName=".Bridge_Form" />
+        <activity
+            android:name=".Flange_Form"
+            android:parentActivityName=".GirderContent" />
+        <activity
+            android:name=".Flange_Rivets_Defects_Lobby"
+            android:parentActivityName=".Flange_Lobby" />
+        <activity
+            android:name=".Flange_Rivets_Defects_Form"
+            android:parentActivityName=".Flange_Rivets_Defects_Lobby" />
+        <activity
+            android:name=".Flange_Lobby"
+            android:parentActivityName=".Flange_Form" />
+        <activity
+            android:name=".Flange_Defects_Lobby"
+            android:parentActivityName=".Flange_Lobby" />
+        <activity
+            android:name=".Flange_Defects_Form"
+            android:parentActivityName=".Flange_Defects_Lobby" />
+        <activity
+            android:name=".Girders_Lobby"
+            android:parentActivityName=".Decks_Lobby" />
+        <activity
+            android:name=".GirderContent"
+            android:parentActivityName=".Girders_Lobby" />
+        <activity
+            android:name=".Gusset_Plates_Rivets_Defects_Lobby"
+            android:parentActivityName=".Gusset_Plates_Form" />
+        <activity
+            android:name=".Gusset_Plates_Rivets_Defects_Form"
+            android:parentActivityName=".Gusset_Plates_Rivets_Defects_Lobby" />
+        <activity
+            android:name=".Gusset_Plates_Form"
+            android:parentActivityName=".Stiffener_Lobby" />
+        <activity
+            android:name=".T_Angle_Rivets_Defects_Lobby"
+            android:parentActivityName=".T_Angle_Form" />
+        <activity
+            android:name=".T_Angle_Rivets_Defects_Form"
+            android:parentActivityName=".T_Angle_Rivets_Defects_Lobby" />
+        <activity
+            android:name=".T_Angle_Form"
+            android:parentActivityName=".Stiffener_Lobby" />
+        <activity
+            android:name=".L_Angle_Rivets_Defects_Form"
+            android:parentActivityName=".L_Angle_Rivets_Defects_Lobby" />
+        <activity
+            android:name=".L_Angle_Rivets_Defects_Lobby"
+            android:parentActivityName=".L_Angle_Form" />
+        <activity
+            android:name=".L_Angle_Form"
+            android:parentActivityName=".Stiffener_Lobby" />
+        <activity
+            android:name=".Stiffener_Form"
+            android:parentActivityName=".Bays_Lobby" />
+        <activity
+            android:name=".Stiffener_Lobby"
+            android:parentActivityName=".Stiffener_Form" />
+        <activity
+            android:name=".Stiffener_Rivets_Defects_Form"
+            android:parentActivityName=".Stiffener_Rivets_Defects_Lobby" />
+        <activity
+            android:name=".Stiffener_Rivets_Defects_Lobby"
+            android:parentActivityName=".Stiffener_Rivets_Form" />
+        <activity
+            android:name=".Stiffener_Rivets_Form"
+            android:parentActivityName=".Stiffener_Lobby" />
+        <activity
+            android:name=".Stiffener_Defects_Form"
+            android:parentActivityName=".Stiffener_Defects_Lobby" />
+        <activity
+            android:name=".Stiffener_Defects_Lobby"
+            android:parentActivityName=".Stiffener_Lobby" />
+        <activity
+            android:name=".Web_Defects_Form"
+            android:parentActivityName=".Web_Defects_Lobby" />
+        <activity
+            android:name=".Web_Defects_Lobby"
+            android:parentActivityName=".Web_Form" />
+        <activity
+            android:name=".Web_Form"
+            android:parentActivityName=".GirderContent" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

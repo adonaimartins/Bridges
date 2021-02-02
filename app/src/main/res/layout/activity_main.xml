@@ -7,12 +7,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/title_log_in_duff_martins_bridges_p35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Duff Martins Bridges"
+        android:text="@string/title_log_in_duff_martins_bridges"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintBottom_toTopOf="@+id/cardView_p35"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.505" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardView_p35"
         android:layout_width="350dp"
         android:layout_height="290dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,13 +37,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView2_p35"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
             <EditText
-                android:id="@+id/editTextTextPassword4"
+                android:id="@+id/editTextTextPassword4_p35"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -51,7 +51,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/editTextTextPassword5"
+                android:id="@+id/editTextTextPassword5_p35"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -68,25 +68,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/cardView_p35">
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/checkbox_remember_p35"
             android:layout_width="22dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_weight="1"
-            android:text="Remember" />
+            android:text="@string/checkbox_remember" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button2_p35"
             android:layout_width="22dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
             android:layout_marginRight="40dp"
             android:layout_weight="1"
             android:onClick="logIn"
-            android:text="Button" />
+            android:text="@string/button_login" />
 
     </LinearLayout>
 

@@ -7,51 +7,60 @@
     tools:context=".GirderContent">
 
 
-    <TextView
-        android:id="@+id/textView43"
+
+    <LinearLayout
+        android:id="@+id/statusContainer_p27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="deck1"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/status1_p27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Deck1" />
+
+    </LinearLayout>
 
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/title_girder_number_p27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:text="Girder1"
+        android:text="@string/title_girder_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/title_please_select_one_p27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
-        android:text="Please Select One"
+        android:text="@string/title_please_select_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+        app:layout_constraintTop_toBottomOf="@+id/title_girder_number_p27" />
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout_p27"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox4"
+        app:layout_constraintBottom_toTopOf="@+id/checkboxCompletedText_p27"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView36"
-        app:layout_constraintVertical_bias="0.345">
+        app:layout_constraintTop_toBottomOf="@+id/title_please_select_one_p27"
+        app:layout_constraintVertical_bias="0.181">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,27 +69,27 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/button_web_p27"
                 android:layout_width="wrap_content"
                 android:layout_height="39dp"
                 android:onClick="launchWebForm"
-                android:text="web" />
+                android:text="@string/button_web" />
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/button_angle_p27"
                 android:layout_width="wrap_content"
                 android:layout_height="39dp"
                 android:layout_marginLeft="30dp"
                 android:onClick="launchAngleForm"
-                android:text="angle" />
+                android:text="@string/button_angle" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/button_bays_p27"
                 android:layout_width="wrap_content"
                 android:layout_height="39dp"
                 android:layout_marginLeft="30dp"
                 android:onClick="launchBays"
-                android:text="Bays"
+                android:text="@string/button_bays"
                 app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
 
@@ -91,41 +100,41 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/button_curtailment_plates_p27"
                 android:layout_width="wrap_content"
                 android:layout_height="39dp"
                 android:onClick="launch_CP_List"
-                android:text="Curtailment plates" />
+                android:text="@string/button_curtailment_plates" />
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/button_flange_p27"
                 android:layout_width="wrap_content"
                 android:layout_height="39dp"
                 android:layout_marginLeft="20dp"
                 android:onClick="launchFlangeForm"
-                android:text="flange" />
+                android:text="@string/button_flange" />
         </LinearLayout>
     </LinearLayout>
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/checkboxCompletedText_p27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="completed"
-        app:layout_constraintBottom_toTopOf="@+id/button18"
+        android:text="@string/checkboxCompletedText"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSubmit_p27"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.858"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/buttonSubmit_p27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="28dp"
         android:onClick="submitGirder"
-        android:text="submit"
+        android:text="@string/button_submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

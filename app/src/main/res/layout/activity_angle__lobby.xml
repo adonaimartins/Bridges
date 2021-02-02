@@ -6,77 +6,90 @@
     android:layout_height="match_parent"
     tools:context=".Angle_Lobby">
 
-    <TextView
-        android:id="@+id/textView46"
+
+
+    <LinearLayout
+        android:id="@+id/statusContainer_p4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Deck1"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/status1_p4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Deck1" />
+
+        <TextView
+            android:id="@+id/status2_p4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Girder1" />
+
+    </LinearLayout>
+
 
     <TextView
-        android:id="@+id/textView47"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="Girder1"
-        app:layout_constraintStart_toEndOf="@+id/textView46"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView48"
+        android:id="@+id/title_Angle_p4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
-        android:text="Angle"
+        android:text="@string/title_Angle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/buttonDefects_p4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:onClick="launchDefects"
-        android:text="defects"
+        android:text="@string/button_defects"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView48" />
+        app:layout_constraintTop_toBottomOf="@+id/title_Angle_p4" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonRivetsDefects_p4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="204dp"
         android:onClick="launchRivetsDefects"
-        android:text="Rivets Defects"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox5"
+        android:text="@string/button_rivets_defects"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxCompleted_p4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.362"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.374"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDefects_p4"
+        app:layout_constraintVertical_bias="0.909" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/checkBoxCompleted_p4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Completed"
-        app:layout_constraintBottom_toTopOf="@+id/button22"
-        tools:layout_editor_absoluteX="260dp" />
+        android:text="@string/checkboxCompletedText"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSubmit_p4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/buttonSubmit_p4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:onClick="submit"
-        android:text="Save and Go to Girder"
+        android:text="@string/button_submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.735"

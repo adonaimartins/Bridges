@@ -7,121 +7,154 @@
     tools:context=".Stiffener_Lobby">
 
 
-    <TextView
-        android:id="@+id/textView46"
+    <LinearLayout
+        android:id="@+id/statusContainer_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Deck1"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/status1_p41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Deck1" />
+
+        <TextView
+            android:id="@+id/status2_p41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Girder1" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/title_stiffenerNumber_p41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/title_stiffenerNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/textView47"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Girder1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="72dp" />
-
 
     <TextView
-        android:id="@+id/textView48"
+        android:id="@+id/label_stiffener_data_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stiffener0"
+        android:layout_marginTop="52dp"
+        android:text="@string/label_stiffener_data"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="93dp" />
-
-
-    <TextView
-        android:id="@+id/textView45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stiffener Data"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="160dp" />
+        app:layout_constraintTop_toBottomOf="@+id/title_stiffenerNumber_p41" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/button_rivets_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="36dp"
         android:onClick="launchRivets"
-        android:text="Rivets"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="194dp" />
+        android:text="@string/button_rivets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_stiffener_data_p41" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/button_defects_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
         android:onClick="launchDefects"
-        android:text="defects"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="193dp" />
+        android:text="@string/button_defects"
+        app:layout_constraintStart_toEndOf="@+id/button_rivets_p41"
+        app:layout_constraintTop_toTopOf="@+id/button_rivets_p41" />
 
     <TextView
-        android:id="@+id/textView49"
+        android:id="@+id/label_other_data_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Other Data"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="283dp" />
-
+        android:layout_marginTop="52dp"
+        android:text="@string/label_other_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_rivets_p41" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/button_l_angle_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="32dp"
         android:onClick="launch_L_Angle"
-        android:text="L-Angle"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="318dp" />
+        android:text="@string/button_l_angle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_other_data_p41" />
 
     <Button
-        android:id="@+id/button19"
+        android:id="@+id/button_t_angle_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
         android:onClick="launch_T_Angle"
-        android:text="T-Angle"
-        tools:layout_editor_absoluteX="190dp"
-        tools:layout_editor_absoluteY="320dp" />
+        android:text="@string/button_t_angle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toEndOf="@+id/button_l_angle_p41"
+        app:layout_constraintTop_toTopOf="@+id/button_l_angle_p41" />
 
     <Button
-        android:id="@+id/button20"
+        android:id="@+id/button_back_to_back_l_angle_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:onClick="launchB2B_L_Angle"
-        android:text="Back to Back L-Angle"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="391dp" />
+        android:text="@string/button_back_to_back_l_angle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_l_angle_p41" />
 
     <Button
-        android:id="@+id/button21"
+        android:id="@+id/button_gusset_plate_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="40dp"
         android:onClick="launchGussetPlate"
-        android:text="Gusset Plate"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="463dp" />
+        android:text="@string/button_gusset_plate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_back_to_back_l_angle_p41" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/checkboxCompletedText_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Completed"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="603dp" />
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/checkboxCompletedText"
+        app:layout_constraintBottom_toTopOf="@+id/button_submit_p41"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toEndOf="@+id/button_gusset_plate_p41" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/button_submit_p41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="24dp"
         android:onClick="submit"
-        android:text="Save and Go to Bays"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="651dp" />
+        android:text="@string/button_submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

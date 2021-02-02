@@ -8,192 +8,271 @@
 
 
 
-    <TextView
-        android:id="@+id/textView68"
+
+    <LinearLayout
+        android:id="@+id/statusContainer_p36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Deck1"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/status1_p36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Deck1" />
+
+        <TextView
+            android:id="@+id/status2_p36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Girder1" />
+
+        <TextView
+            android:id="@+id/status3_p36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Stiffener0" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title_stiffener_defects_p36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/title_stiffener_defects"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView65"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Girder1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="72dp" />
-    <TextView
-        android:id="@+id/textView71"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Stiffener0"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddText_p36"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title_stiffener_defects_p36"
+        app:layout_constraintVertical_bias="0.705">
 
-    <TextView
-        android:id="@+id/textView61"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stiffener Defects"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="65dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-    <TextView
-        android:id="@+id/textView58"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Defect Type"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="127dp" />
+            <TextView
+                android:id="@+id/label_defect_type_p36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/label_defect_type" />
 
-    <Spinner
-        android:id="@+id/spinner6"
-        android:layout_width="90dp"
-        android:layout_height="21dp"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="125dp" />
+            <Spinner
+                android:id="@+id/dropDown_defect_type_p36"
+                android:layout_width="90dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView57"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Leg"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="178dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
+            <TextView
+                android:id="@+id/label_leg_p36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/label_leg" />
 
-    <Spinner
-        android:id="@+id/spinner9"
-        android:layout_width="81dp"
-        android:layout_height="27dp"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="178dp" />
+            <Spinner
+                android:id="@+id/dropDown_leg_p36"
+                android:layout_width="81dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView62"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Measurement From"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="231dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-    <Spinner
-        android:id="@+id/spinner10"
-        android:layout_width="81dp"
-        android:layout_height="27dp"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="231dp" />
+            <TextView
+                android:id="@+id/label_measurement_from_p36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/label_measurement_from" />
 
-    <TextView
-        android:id="@+id/textView66"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Length"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="273dp" />
-    <EditText
-        android:id="@+id/editTextTextPersonName13"
-        android:layout_width="66dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="273dp" />
+            <Spinner
+                android:id="@+id/dropDown_measurement_from_p36"
+                android:layout_width="81dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinner11"
-        android:layout_width="81dp"
-        android:layout_height="27dp"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="273dp" />
-    <TextView
-        android:id="@+id/textView63"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="End Length"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="327dp" />
-    <EditText
-        android:id="@+id/editTextTextPersonName12"
-        android:layout_width="76dp"
-        android:layout_height="38dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="323dp" />
-    <Spinner
-        android:id="@+id/spinner7"
-        android:layout_width="81dp"
-        android:layout_height="27dp"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="323dp" />
-    <TextView
-        android:id="@+id/textView64"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Width"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="377dp" />
-    <EditText
-        android:id="@+id/editTextTextPersonName11"
-        android:layout_width="78dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="365dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-    <Spinner
-        android:id="@+id/spinner8"
-        android:layout_width="81dp"
-        android:layout_height="27dp"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="369dp" />
+            <TextView
+                android:id="@+id/label_start_lenght_p36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/label_start_lenght" />
 
-    <TextView
-        android:id="@+id/textView67"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Depth"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="415dp" />
-    <EditText
-        android:id="@+id/editTextTextPersonName10"
-        android:layout_width="90dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="415dp" />
+            <EditText
+                android:id="@+id/input_start_lenght_p36"
+                android:layout_width="50dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
 
-    <Spinner
-        android:id="@+id/spinner12"
-        android:layout_width="81dp"
-        android:layout_height="27dp"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="415dp" />
+            <Spinner
+                android:id="@+id/inchesMilimetre1_p36"
+                android:layout_width="81dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/label_end_lenght_p36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/label_length" />
+
+            <EditText
+                android:id="@+id/input_end_lenght_p36"
+                android:layout_width="50dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
+
+            <Spinner
+                android:id="@+id/inchesMilimetre2_p36"
+                android:layout_width="81dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/label_width_p36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/label_width" />
+
+            <EditText
+                android:id="@+id/input_width_p36"
+                android:layout_width="50dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
+
+            <Spinner
+                android:id="@+id/inchesMilimetre3_p36"
+                android:layout_width="81dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/label_deph_p36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/label_deph" />
+
+            <EditText
+                android:id="@+id/input_deph_p36"
+                android:layout_width="50dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
+
+            <Spinner
+                android:id="@+id/inchesMilimetre4_p36"
+                android:layout_width="81dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/button24"
+        android:id="@+id/buttonAddText_p36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
         android:onClick="submit"
-        android:text="Add and return"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="500dp" />
+        android:text="@string/buttonAddText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

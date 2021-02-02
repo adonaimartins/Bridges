@@ -6,60 +6,87 @@
     android:layout_height="match_parent"
     tools:context=".Stiffener_Form">
 
-    <TextView
-        android:id="@+id/textView40"
+
+
+    <LinearLayout
+        android:id="@+id/statusContainer_p40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stiffener0"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="93dp" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/status1_p40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Deck1" />
+
+        <TextView
+            android:id="@+id/status2_p40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Girder1" />
+
+        <TextView
+            android:id="@+id/status3_p40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Stiffener0" />
+
+    </LinearLayout>
+
 
     <TextView
-        android:id="@+id/textView41"
+        android:id="@+id/title_stiffenerNumber_p40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Deck1"
+        android:layout_marginTop="144dp"
+        android:text="@string/title_stiffenerNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/label_stiffener_type_p40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Girder1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="72dp" />
+        android:layout_marginTop="144dp"
+        android:text="@string/label_stiffener_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_stiffenerNumber_p40" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/input_stiffener_type_p40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="enter type"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="237dp" />
-
-    <TextView
-        android:id="@+id/textView44"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Stiffener Type"
+        app:layout_constraintBottom_toTopOf="@+id/button_next_p40"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="218dp" />
+        app:layout_constraintTop_toBottomOf="@+id/label_stiffener_type_p40"
+        app:layout_constraintVertical_bias="0.026" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/button_next_p40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="28dp"
         android:onClick="next"
-        android:text="next"
-        tools:layout_editor_absoluteX="287dp"
-        tools:layout_editor_absoluteY="653dp" />
+        android:text="@string/button_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

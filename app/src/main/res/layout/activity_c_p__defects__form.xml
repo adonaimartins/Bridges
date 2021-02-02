@@ -6,33 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".CP_Defects_Form">
 
-    <TextView
-        android:id="@+id/textView50"
+    <LinearLayout
+        android:id="@+id/statusContainer_p13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Deck1"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/status1_p13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Deck1" />
+
+        <TextView
+            android:id="@+id/status2_p13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Girder1" />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/textView51"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Girder1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="72dp" />
-
-    <TextView
-        android:id="@+id/textView52"
+        android:id="@+id/title_curtailment_plates_defects_p13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:gravity="center"
-        android:text="Curtailment Plates Defects"
-        android:textSize="20dp"
+        android:text="@string/title_curtailment_plates_defects"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,16 +52,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView52"
+        app:layout_constraintTop_toBottomOf="@+id/title_curtailment_plates_defects_p13"
         app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="50dp"
+            android:paddingStart="50dp"
             android:paddingTop="25dp"
-            android:paddingRight="65dp"
+            android:paddingEnd="50dp"
             android:paddingBottom="50dp">
 
             <LinearLayout
@@ -64,57 +71,57 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/textView53"
+                    android:id="@+id/labelTypeOfDefect_p13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:text="Type" />
+                    android:text="@string/label_defect_type" />
 
                 <Spinner
-                    android:id="@+id/spinner3"
+                    android:id="@+id/dropdownTypeOfDefect_p13"
                     android:layout_width="74dp"
-                    android:layout_height="20dp"
-                    />
+                    android:layout_height="20dp" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:padding="10dp">
 
-
                 <TextView
-                    android:id="@+id/textView54"
+                    android:id="@+id/label_elevation_p13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:text="Elevation" />
+                    android:text="@string/label_elevation" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/dropDown_elevation_p13"
                     android:layout_width="74dp"
                     android:layout_height="20dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:padding="10dp">
 
-
                 <TextView
-                    android:id="@+id/textView54"
+                    android:id="@+id/label_method_for_measurement_p13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:text="Method for Measurement" />
+                    android:text="@string/label_method_for_measurement" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/dropDown_method_for_measurement_p13"
                     android:layout_width="74dp"
                     android:layout_height="20dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -122,69 +129,125 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/textView55"
+                    android:id="@+id/label_start_lenght_p13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:text="Start Length" />
+                    android:text="@string/label_start_lenght" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName9"
-                    android:layout_width="100dp"
-                    android:layout_height="45dp"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-
-                <Spinner
-                    android:id="@+id/spinner4"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-
-                <TextView
-                    android:id="@+id/textView56"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="End Length" />
-
-                <Spinner
-                    android:id="@+id/spinner5"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-
-                <TextView
-                    android:id="@+id/textView56"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="Length" />
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName8"
-                    android:layout_width="100dp"
+                    android:id="@+id/input_start_lenght_p13"
+                    android:layout_width="50dp"
                     android:layout_height="45dp"
                     android:ems="10"
                     android:inputType="textPersonName" />
 
                 <Spinner
-                    android:id="@+id/spinner5"
+                    android:id="@+id/inchesMilimetre1_p13"
+                    android:layout_width="74dp"
+                    android:layout_height="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/label_end_lenght_p13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/label_end_lenght" />
+
+                <EditText
+                    android:id="@+id/input_end_lenght_p13"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+
+                <Spinner
+                    android:id="@+id/inchesMilimetre2_p13"
+                    android:layout_width="74dp"
+                    android:layout_height="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/label_length_p13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/label_length" />
+
+                <EditText
+                    android:id="@+id/input_length_p13"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+
+                <Spinner
+                    android:id="@+id/inchesMilimetre3_p13"
+                    android:layout_width="74dp"
+                    android:layout_height="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/label_start_width_p13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/label_start_width" />
+
+                <EditText
+                    android:id="@+id/input_start_width_p13"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <Spinner
+                    android:id="@+id/inchesMilimetre4_p13"
+                    android:layout_width="74dp"
+                    android:layout_height="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/label_end_width_p13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/label_end_width" />
+
+                <EditText
+                    android:id="@+id/input_end_width_p13"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <Spinner
+                    android:id="@+id/inchesMilimetre5_p13"
                     android:layout_width="74dp"
                     android:layout_height="20dp" />
             </LinearLayout>
@@ -197,19 +260,23 @@
 
 
                 <TextView
-                    android:id="@+id/textView57"
+                    android:id="@+id/label_width_p13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:text="Start Width" />
-
+                    android:text="@string/label_width" />
 
                 <EditText
-                    android:id="@+id/editTextNumber4"
-                    android:layout_width="149dp"
+                    android:id="@+id/input_width_p13"
+                    android:layout_width="50dp"
                     android:layout_height="45dp"
                     android:ems="10"
                     android:inputType="number" />
+
+                <Spinner
+                    android:id="@+id/inchesMilimetre6_p13"
+                    android:layout_width="74dp"
+                    android:layout_height="20dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -218,74 +285,35 @@
                 android:orientation="horizontal"
                 android:padding="10dp">
 
-
                 <TextView
-                    android:id="@+id/textView62"
+                    android:id="@+id/label_deph_p13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:text="End Width" />
+                    android:text="@string/label_deph" />
 
                 <EditText
-                    android:id="@+id/editTextNumber5"
-                    android:layout_width="98dp"
+                    android:id="@+id/input_deph_p13"
+                    android:layout_width="50dp"
                     android:layout_height="45dp"
                     android:ems="10"
                     android:inputType="number" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-
-                <TextView
-                    android:id="@+id/textView66"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="Width" />
-
-                <EditText
-                    android:id="@+id/editTextNumber6"
-                    android:layout_width="120dp"
-                    android:layout_height="45dp"
-                    android:ems="10"
-                    android:inputType="number" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-
-                <TextView
-                    android:id="@+id/textView66"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="Depth" />
-
-                <EditText
-                    android:id="@+id/editTextNumber6"
-                    android:layout_width="120dp"
-                    android:layout_height="45dp"
-                    android:ems="10"
-                    android:inputType="number" />
+                <Spinner
+                    android:id="@+id/inchesMilimetre7_p13"
+                    android:layout_width="74dp"
+                    android:layout_height="20dp" />
             </LinearLayout>
 
             <Button
-                android:id="@+id/button23"
+                android:id="@+id/buttonAdd_p13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:layout_marginTop="30dp"
                 android:onClick="addDefect"
-                android:text="Add" />
+                android:text="@string/buttonAddText" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

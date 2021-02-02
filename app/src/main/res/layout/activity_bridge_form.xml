@@ -8,11 +8,11 @@
 
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/title_bridge_p11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Bridge"
+        android:text="@string/title_bridge"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -28,26 +28,26 @@
 
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/title_bridge_p11"
         app:layout_constraintVertical_bias="0.0">
 
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/label_surveior_name_p11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Surveior Name"
+                android:text="@string/label_surveior_name"
                 tools:layout_editor_absoluteX="158dp"
                 tools:layout_editor_absoluteY="548dp" />
 
             <EditText
-                android:id="@+id/EditTextName"
+                android:id="@+id/input_surveior_name_p11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -56,15 +56,15 @@
                 android:minWidth="300dp" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/label_surveior_lastName_p11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Surveior Last Name"
+                android:text="@string/label_surveior_last_name"
                 tools:layout_editor_absoluteX="158dp"
                 tools:layout_editor_absoluteY="548dp" />
 
             <EditText
-                android:id="@+id/EditTextName19"
+                android:id="@+id/input_surveior_lastName_p11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -73,13 +73,13 @@
                 android:minWidth="300dp"></EditText>
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/label_structureName_p11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Structure Name" />
+                android:text="@string/label_structure_name" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/input_structureName_p11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -88,13 +88,13 @@
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/label_structureLocation_p11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Structure Location" />
+                android:text="@string/label_structure_location" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/input_structureLocation_p11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -103,13 +103,13 @@
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/label_structureNumber_p11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Structure Number" />
+                android:text="@string/label_structure_number" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/input_structureNumber_p11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -118,10 +118,10 @@
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/label_mileage_p11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mileage" />
+                android:text="@string/label_mileage" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,7 +130,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextNumber2"
+                    android:id="@+id/input_mileage_miles_p11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -139,7 +139,7 @@
                     android:inputType="number" />
 
                 <EditText
-                    android:id="@+id/editTextNumber"
+                    android:id="@+id/input_mileage_yards_p11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -147,33 +147,23 @@
                     android:hint="Yards"
                     android:inputType="number" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:orientation="horizontal">
+                android:gravity="end">
 
                 <Button
-                    android:id="@+id/button5"
-                    android:layout_width="5dp"
+                    android:id="@+id/buttonNext_p11"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    android:text="save" />
-
-                <Button
-                    android:id="@+id/button6"
-                    android:layout_width="17dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_weight="1"
                     android:onClick="launchDeckLobby"
-                    android:text="next" />
+                    android:text="@string/button_next" />
             </LinearLayout>
-
-
         </LinearLayout>
     </ScrollView>
 

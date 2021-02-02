@@ -9,43 +9,52 @@
     app:layout_dodgeInsetEdges="top|left"
     tools:context=".Bridges_Lobby">
 
-
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title_bridges_p12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Bridges"
+        android:text="@string/title_bridges"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonLogout_p12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="68dp"
+        android:onClick="logOut"
+        android:text="@string/button_logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAdd_p12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:onClick="addBridge"
-        android:text="add"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        android:text="@string/buttonAddText"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2_p12"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/scrollView2_p12"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="128dp"
-
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView_p12">
 
         <TableLayout
-            android:id="@+id/tableLayout"
+            android:id="@+id/tableLayout_p12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -55,11 +64,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.201"
-
-            >
-
+            app:layout_constraintTop_toBottomOf="@+id/textView_p12"
+            app:layout_constraintVertical_bias="0.201">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -70,59 +76,59 @@
                 android:paddingBottom="4dp">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/table_columnName_selectBridge_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="0"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="0sp"
-                    android:text="Select Bridge"
+                    android:text="@string/table_columnName_select_bridge"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/table_columnName_structure_name_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="0sp"
-                    android:text="Structure Name"
+                    android:text="@string/table_columnName_structure_name"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/table_columnName_location_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="0sp"
-                    android:text="Location"
+                    android:text="@string/table_columnName_location"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/table_columnName_number_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="3"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="0sp"
-                    android:text="Number"
+                    android:text="@string/table_columnName_number"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textView12_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="4"
@@ -135,7 +141,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/title_bridge_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="5"
@@ -155,7 +161,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/textView8_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="0"
@@ -166,7 +172,7 @@
                     android:textSize="11dp" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/textView9_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
@@ -177,44 +183,41 @@
                     android:textSize="11dp" />
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/textView10_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_weight="1"
                     android:gravity="center"
-
                     android:padding="0sp"
                     android:text="Caracas"
                     android:textSize="11dp" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/textView11_p12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="3"
                     android:layout_weight="1"
                     android:gravity="center"
-
                     android:padding="0sp"
                     android:text="4UDeeck"
                     android:textSize="11dp" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/table_button_del_p12"
                     android:layout_width="35dp"
                     android:layout_height="40dp"
                     android:layout_column="4"
                     android:layout_marginRight="20dp"
-
                     android:gravity="center"
                     android:onClick="deleteBridge"
                     android:padding="0sp"
-                    android:text="del"
+                    android:text="@string/table_button_del"
                     android:textSize="8dp" />
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/table_button_edit_p12"
                     android:layout_width="35dp"
                     android:layout_height="40dp"
                     android:layout_column="5"
@@ -222,30 +225,9 @@
                     android:gravity="center"
                     android:onClick="EditBridge"
                     android:padding="0sp"
-                    android:text="Edit"
+                    android:text="@string/table_button_edit"
                     android:textSize="8dp" />
             </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </TableLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/button29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="68dp"
-        android:onClick="logOut"
-        android:text="LogOut"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

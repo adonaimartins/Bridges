@@ -6,139 +6,201 @@
     android:layout_height="match_parent"
     tools:context=".Stiffener_Rivets_Form">
 
-    <TextView
-        android:id="@+id/textView68"
+    <LinearLayout
+        android:id="@+id/statusContainer_p39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Deck1"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/status1_p39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Deck1" />
+
+        <TextView
+            android:id="@+id/status2_p39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Girder1" />
+
+        <TextView
+            android:id="@+id/status3_p39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Stiffener0" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/title_stiffener_rivets_p39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/title_stiffener_rivets"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView65"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Girder1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="72dp" />
-    <TextView
-        android:id="@+id/textView71"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Stiffener0"
+        android:layout_marginBottom="228dp"
+        android:orientation="vertical"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title_stiffener_rivets_p39">
 
-    <TextView
-        android:id="@+id/textView61"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stiffener Rivets"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="65dp" />
-
-    <TextView
-        android:id="@+id/textView58"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Defect Type"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="127dp" />
-
-    <Spinner
-        android:id="@+id/spinner6"
-        android:layout_width="90dp"
-        android:layout_height="21dp"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="125dp" />
-
-    <TextView
-        android:id="@+id/textView57"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Head Size"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="178dp" />
-
-    <EditText
-        android:id="@+id/editTextNumber4"
-        android:layout_width="149dp"
-        android:layout_height="37dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="170dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
 
-    <TextView
-        android:id="@+id/textView62"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Longitudinal Spacing"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="231dp" />
-    <EditText
-        android:id="@+id/editTextNumber5"
-        android:layout_width="98dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="195dp"
-        tools:layout_editor_absoluteY="219dp" />
+            <TextView
+                android:id="@+id/labelTypeOfRivet_p39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="@string/label_type_of_rivet" />
 
-    <TextView
-        android:id="@+id/textView66"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Transverse Spacing"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="273dp" />
+            <Spinner
+                android:id="@+id/dropdownTypeOfRivet_p39"
+                android:layout_width="90dp"
+                android:layout_height="21dp"
+                android:layout_gravity="right" />
 
-    <EditText
-        android:id="@+id/editTextNumber6"
-        android:layout_width="120dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="203dp"
-        tools:layout_editor_absoluteY="270dp" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView63"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Number of Rivets"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="327dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-    <EditText
-        android:id="@+id/editTextNumber7"
-        android:layout_width="120dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="203dp"
-        tools:layout_editor_absoluteY="327dp" />
+
+            <TextView
+                android:id="@+id/label_head_size_p39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="@string/label_head_size" />
+
+
+            <EditText
+                android:id="@+id/input_head_size_p39"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Spinner
+                android:id="@+id/dropDown_head_size_p39"
+                android:layout_width="74dp"
+                android:layout_height="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/label_longitudinal_spacing_p39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="@string/label_longitudinal_spacing" />
+
+            <EditText
+                android:id="@+id/input_longitudinal_spacing_p39"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Spinner
+                android:id="@+id/dropDown_longitudinal_spacing_p39"
+                android:layout_width="74dp"
+                android:layout_height="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/label_transverse_spacing1_p39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="@string/label_transverse_spacing1" />
+
+            <EditText
+                android:id="@+id/input_transverse_spacing1_p39"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Spinner
+                android:id="@+id/dropDown_transverse_spacing1_p39"
+                android:layout_width="74dp"
+                android:layout_height="20dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/label_number_of_rivets_p39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="@string/label_number_of_rivets" />
+
+            <EditText
+                android:id="@+id/input_number_of_rivets_p39"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="number" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/button24"
+        android:id="@+id/buttonAddText_p39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="32dp"
         android:onClick="next"
-        android:text="Next"
-        tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="619dp" />
-
-
-
+        android:text="@string/button_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

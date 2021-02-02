@@ -1,3 +1,166 @@
 <resources>
     <string name="app_name">Bridges</string>
+
+    <string name="checkboxCompletedText">completed</string>
+    <string name="checkbox_remember">Remember</string>
+
+    <string name="label_type">Type</string>
+    <string name="label_leg">Leg</string>
+    <string name="label_position">Position</string>
+    <string name="label_elevation">Elevation</string>
+    <string name="label_start_lenght">Start Length</string>
+    <string name="label_end_lenght">End Length</string>
+    <string name="label_start_height_width">Start Height/Width</string>
+    <string name="label_height">Height</string>
+    <string name="label_width">Width</string>
+    <string name="label_deph">Depth</string>
+    <string name="label_length">length</string>
+    <string name="label_thickness">Thickness</string>
+    <string name="label_type_of_rivet">Type of Rivet</string>
+    <string name="label_head_size">Head Size</string>
+    <string name="label_longitudinal_spacing">Longitudinal Spacing</string>
+    <string name="label_transverse_spacing1">Transverse Spacing1</string>
+    <string name="label_transverse_spacing_2">Transverse Spacing 2</string>
+    <string name="label_vertical_spacing_1">Vertical Spacing 1</string>
+    <string name="label_vertical_spacing_2">Vertical Spacing 2</string>
+    <string name="label_number_of_rivets">Number of Rivets</string>
+    <string name="label_defect_type">Defect Type</string>
+    <string name="label_number_afected">Number Afected</string>
+    <string name="label_percentage_loss">Percentage Loss</string>
+    <string name="label_width_top">Width Top</string>
+    <string name="label_width_bottom">Width Bottom</string>
+    <string name="label_stiffeners_no_in_blue">Stiffeners No. in blue</string>
+    <string name="label_bays_no_in_red">Bays No. in red</string>
+    <string name="label_surveior_name">Surveior Name</string>
+    <string name="label_surveior_last_name">Surveior Last Name</string>
+    <string name="label_structure_name">Structure Name</string>
+    <string name="label_structure_location">Structure Location</string>
+    <string name="label_structure_number">Structure Number</string>
+    <string name="label_mileage">Mileage</string>
+    <string name="label_method_for_measurement">Method for Measurement</string>
+    <string name="label_start_width">Start Width</string>
+    <string name="label_end_width">End Width</string>
+    <string name="label_cp_location">CP Location</string>
+    <string name="label_c_plate_stiffener_ref_start">C. Plate Stiffener Ref(Start)</string>
+    <string name="label_c_p_start_distance_from_stiff">C.P. Start Distance From Stiff</string>
+    <string name="label_cp_stifener_ref_end">CP Stifener Ref (End)</string>
+    <string name="label_cp_finish_dist_form_stiff">CP Finish Dist. form Stiff</string>
+    <string name="label_option_chosen">Option Chosen</string>
+    <string name="label_add_girder_name">Add Girder Name</string>
+    <string name="label_add_number_of_bays">Add Number of Bays</string>
+    <string name="label_bays_direction">Bays Direction</string>
+    <string name="label_l_angle_rivets_defects">L-Angle Rivets Defects</string>
+    <string name="label_measurement_from">Measurement From</string>
+    <string name="label_stiffener_type">Stiffener Type</string>
+    <string name="label_stiffener_data">Stiffener Data</string>
+    <string name="label_other_data">Other Data</string>
+    <string name="label_t_angle_rivets_defects">T-Angle Rivets Defects</string>
+    <string name="label_start_height">Start Height</string>
+    <string name="label_end_height">End Height</string>
+
+    <string name="title_angle_defects">Angle Defects</string>
+    <string name="title_Angle">Angle</string>
+    <string name="title_angle_rivets">Angle Rivets</string>
+    <string name="title_angle_rivets_defects">Angle Rivets Defects</string>
+    <string name="title_back_to_back_l_angle_rivets_defects">Back to Back L-Angle Rivets Defects</string>
+    <string name="title_flange_rivets_defects">Flange Rivets Defects</string>
+    <string name="title_gusset_plates_rivets_defects">Gusset Plates Rivets Defects</string>
+    <string name="title_l_angle_rivets_defects">L-Angle Rivets Defects</string>
+    <string name="title_stiffener_rivets_defects">Stiffener Rivets Defects</string>
+    <string name="title_flange_defects">Flange Defects</string>
+    <string name="title_curtailment_plates_rivets_defects">Curtailment Plates Rivets Defects</string>
+    <string name="title_curtailment_plates_defects">Curtailment Plates Defects</string>
+    <string name="title_back_to_back_l_angle_rivets">Back to Back L-Angle Rivets</string>
+    <string name="title_back_to_back_l_angle">Back to Back L-Angle</string>
+    <string name="title_bays_and_stiffeners">Bays and Stiffeners</string>
+    <string name="title_bridges">Bridges</string>
+    <string name="title_bridge">Bridge</string>
+    <string name="title_curtailment_plates">Curtailment Plates</string>
+    <string name="title_curtailment_plates_rivets">Curtailment Plates Rivets</string>
+    <string name="title_bridge_name">Andromeda Bridge</string>
+    <string name="title_decks">Decks</string>
+    <string name="title_flange">Flange</string>
+    <string name="title_girder_number">Girder1</string>
+    <string name="title_please_select_one">Please Select One</string>
+    <string name="title_girders">Girders</string>
+    <string name="title_gusset_plates">Gusset Plates</string>
+    <string name="title_gusset_plates_rivets">Gusset Plates Rivets</string>
+    <string name="title_l_angle">L-Angle</string>
+    <string name="title_l_angle_rivets">L-Angle Rivets</string>
+    <string name="title_log_in_duff_martins_bridges">Duff Martins Bridges</string>
+    <string name="title_stiffener_defects">Stiffener Defects</string>
+    <string name="title_stiffener_rivets">Stiffener Rivets</string>
+    <string name="title_stiffenerNumber">Stiffener0</string>
+    <string name="title_t_angle">T-Angle</string>
+    <string name="title_t_angle_rivets">T-Angle Rivets</string>
+    <string name="title_t_angle_rivets_defects">T-Angle Rivets Defects</string>
+    <string name="title_web">Web</string>
+
+    <string name="buttonAddText">Add</string>
+    <string name="buttonDeleteText">Delete</string>
+    <string name="buttonBubmitText">submit</string>
+    <string name="button_logout">LogOut</string>
+    <string name="button_add_cuirtailment_plate">Add Cuirtailment Plate</string>
+    <string name="button_web">web</string>
+    <string name="button_angle">angle</string>
+    <string name="button_bays">Bays</string>
+    <string name="button_curtailment_plates">Curtailment plates</string>
+    <string name="button_flange">flange</string>
+    <string name="button_login">Login</string>
+    <string name="button_rivets">Rivets</string>
+    <string name="button_l_angle">L-Angle</string>
+    <string name="button_t_angle">T-Angle</string>
+    <string name="button_back_to_back_l_angle">Back to Back L-Angle</string>
+    <string name="button_gusset_plate">Gusset Plate</string>
+    <string name="button_submit">submit</string>
+    <string name="button_defects">defects</string>
+    <string name="button_rivets_defects">Rivets Defects</string>
+    <string name="button_next">next</string>
+
+    <string name="tableNameDefects">Defects</string>
+    <string name="table_columnName_id">ID</string>
+    <string name="table_columnName_type_of_error">Type of Error</string>
+    <string name="table_title_instruction_stiffener">Click on any stiffener number to modify</string>
+    <string name="table_labelBellow_scroll_instructions">Scroll Sideways To see the rest of the Bays</string>
+    <string name="table_columnName_select_bridge">Select Bridge</string>
+    <string name="table_columnName_structure_name">Structure Name</string>
+    <string name="table_columnName_location">Location</string>
+    <string name="table_columnName_number">Number</string>
+    <string name="table_button_del">del</string>
+    <string name="table_button_edit">Edit</string>
+
+    <string-array name="baysDirection">
+        <item>Select Direction</item>
+        <item>Right</item>
+        <item>Left</item>
+    </string-array>
+
+    <string-array name="elevation">
+        <item>Select Elevation</item>
+        <item>Internal Face</item>
+        <item>External Face</item>
+    </string-array>
+
+    <string-array name="defectType">
+        <item>Select Defect Type</item>
+        <item>Section Loss</item>
+        <item>Hole</item>
+        <item>Notch</item>
+    </string-array>
+
+    <string-array name="defectLeg">
+        <item>Select Leg</item>
+        <item>Horizontal</item>
+        <item>Vertical</item>
+    </string-array>
+    <string-array name="defectPosition">
+        <item>Select Defect Type</item>
+        <item>Top</item>
+        <item>Bottom</item>
+    </string-array>
+    <string-array name="inchesMm">
+        <item>Select Defect Type</item>
+        <item>Millimetres</item>
+        <item>Inches</item>
+    </string-array>
 </resources>
