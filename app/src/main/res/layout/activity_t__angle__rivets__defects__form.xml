@@ -82,8 +82,8 @@
 
             <Spinner
                 android:id="@+id/dropDown_defect_type_p44"
-                android:layout_width="90dp"
-                android:layout_height="21dp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout

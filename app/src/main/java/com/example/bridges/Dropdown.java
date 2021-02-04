@@ -26,7 +26,7 @@ public class Dropdown {
                                                              @Override
                                                              public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                                                                 selectedItem = parent.getItemAtPosition(position).toString();
+                                                                 selectedItem = parent.getItemAtPosition(position).toString().trim();
 
                                                                  if(parent.getItemAtPosition(position).equals(UNSELECTEDMESSAGE)){
 

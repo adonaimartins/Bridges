@@ -67,16 +67,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingLeft="50dp"
+            android:paddingStart="20dp"
             android:paddingTop="25dp"
-            android:paddingRight="65dp"
+            android:paddingEnd="10dp"
             android:paddingBottom="50dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -95,10 +94,9 @@
                     android:inputType="textPersonName" />
 
                 <Spinner
-                    android:id="@+id/dropDown_length_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp"
-                    />
+                    android:id="@+id/inchesMilimetre1_p7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -106,8 +104,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -125,16 +122,15 @@
                     android:inputType="textPersonName" />
 
                 <Spinner
-                    android:id="@+id/dropDown_height_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:id="@+id/inchesMilimetre2_p7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/label_width_top_p7"
@@ -152,16 +148,15 @@
 
 
                 <Spinner
-                    android:id="@+id/dropDown_width_top_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:id="@+id/inchesMilimetre3_p7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -180,16 +175,15 @@
 
 
                 <Spinner
-                    android:id="@+id/dropDown_width_bottom_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:id="@+id/inchesMilimetre4_p7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -207,9 +201,9 @@
                     android:inputType="textPersonName" />
 
                 <Spinner
-                    android:id="@+id/dropDown_thickness_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:id="@+id/inchesMilimetre5_p7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <TextView
@@ -223,15 +217,10 @@
                 android:textSize="20dp" />
 
 
-
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -241,18 +230,18 @@
                     android:layout_marginEnd="20dp"
                     android:text="@string/label_type_of_rivet" />
 
-                <Spinner
-                    android:id="@+id/dropdownTypeOfRivet_p7"
-                    android:layout_width="90dp"
-                    android:layout_height="21dp"
-                    android:layout_gravity="right" />
+                <EditText
+                    android:id="@+id/input_type_of_rivet_p7"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -272,15 +261,14 @@
 
                 <Spinner
                     android:id="@+id/dropDown_head_size_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -296,17 +284,17 @@
                     android:layout_height="45dp"
                     android:ems="10"
                     android:inputType="number" />
+
                 <Spinner
                     android:id="@+id/dropDown_longitudinal_spacing_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -322,18 +310,18 @@
                     android:layout_height="45dp"
                     android:ems="10"
                     android:inputType="number" />
+
                 <Spinner
                     android:id="@+id/dropDown_transverse_spacing1_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -349,18 +337,18 @@
                     android:layout_height="45dp"
                     android:ems="10"
                     android:inputType="number" />
+
                 <Spinner
                     android:id="@+id/dropDown_transverse_spacing2_p7"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/label_number_of_rivets_p7"
@@ -376,8 +364,6 @@
                     android:ems="10"
                     android:inputType="number" />
             </LinearLayout>
-
-
 
 
             <Button

@@ -20,7 +20,7 @@ public class Stiffener_Lobby extends AppCompatActivity {
     }
 
     public void launchDefects(View view) {
-        Intent intent = new Intent(this, Stiffener_Rivets_Defects_Lobby.class);
+        Intent intent = new Intent(this, Stiffener_Defects_Lobby.class);
         startActivity(intent);
     }
 

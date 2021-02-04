@@ -60,16 +60,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="50dp"
+            android:paddingStart="20dp"
             android:paddingTop="25dp"
-            android:paddingEnd="65dp"
+            android:paddingEnd="10dp"
             android:paddingBottom="50dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/label_position_p15"
@@ -80,16 +79,15 @@
 
                 <Spinner
                     android:id="@+id/dropdown_Position_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -98,6 +96,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:text="@string/label_cp_location" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/form_cd" />
 
                 <EditText
                     android:id="@+id/input_cp_location_p15"
@@ -112,8 +116,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/label_c_plate_stiffener_ref_start_p15"
@@ -134,8 +137,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -145,24 +148,32 @@
                     android:layout_marginEnd="20dp"
                     android:text="@string/label_c_p_start_distance_from_stiff" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:paddingStart="100dp">
+
+                <Spinner
+                    android:id="@+id/inchesMilimetre1_p15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
                 <EditText
                     android:id="@+id/input_c_p_start_distance_from_stiff_p15"
                     android:layout_width="50dp"
                     android:layout_height="45dp"
                     android:ems="10"
                     android:inputType="textPersonName" />
-
-                <Spinner
-                    android:id="@+id/inchesMilimetre1_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -184,8 +195,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -196,25 +207,36 @@
                     android:text="@string/label_cp_finish_dist_form_stiff" />
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:paddingStart="100dp"
+                android:paddingEnd="10dp">
+
                 <EditText
                     android:id="@+id/input_cp_finish_dist_form_stiff_p15"
                     android:layout_width="50dp"
                     android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
                     android:ems="10"
                     android:inputType="number" />
 
                 <Spinner
                     android:id="@+id/inchesMilimetre2_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -233,15 +255,14 @@
 
                 <Spinner
                     android:id="@+id/inchesMilimetre3_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -260,8 +281,8 @@
 
                 <Spinner
                     android:id="@+id/inchesMilimetre4_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
 
@@ -279,8 +300,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -290,18 +310,18 @@
                     android:layout_marginEnd="20dp"
                     android:text="@string/label_type_of_rivet" />
 
-                <Spinner
-                    android:id="@+id/dropdownTypeOfRivet_p15"
-                    android:layout_width="90dp"
-                    android:layout_height="21dp"
-                    android:layout_gravity="right" />
+                <EditText
+                    android:id="@+id/input_type_of_rivet_p15"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -321,15 +341,14 @@
 
                 <Spinner
                     android:id="@+id/dropDown_head_size_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -348,15 +367,14 @@
 
                 <Spinner
                     android:id="@+id/dropDown_longitudinal_spacing_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -375,16 +393,15 @@
 
                 <Spinner
                     android:id="@+id/dropDown_transverse_spacing1_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
 
                 <TextView
@@ -403,16 +420,15 @@
 
                 <Spinner
                     android:id="@+id/dropDown_transverse_spacing2_p15"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/label_number_of_rivets_p15"

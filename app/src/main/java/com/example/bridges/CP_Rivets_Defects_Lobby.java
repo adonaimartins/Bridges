@@ -15,7 +15,7 @@ public class CP_Rivets_Defects_Lobby extends AppCompatActivity {
     }
 
     public void addDefect(View view) {
-        Intent intent = new Intent(this, CP_Rivets_Defects_Form.class);
+        Intent intent = new Intent(this, CP_Defects_Form.class);
         startActivity(intent);
     }
 

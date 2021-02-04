@@ -128,6 +128,10 @@
     <string name="table_columnName_number">Number</string>
     <string name="table_button_del">del</string>
     <string name="table_button_edit">Edit</string>
+    <string name="flange_rivets">Flange Rivets</string>
+    <string name="form_cd">CP</string>
+    <string name="title_web_defects">Web Defects</string>
+    <string name="stiffener_0_defect">Stiffener 0 Defect</string>
 
     <string-array name="baysDirection">
         <item>Select Direction</item>
@@ -141,11 +145,23 @@
         <item>External Face</item>
     </string-array>
 
-    <string-array name="defectType">
+    <string-array name="defectType_1">
         <item>Select Defect Type</item>
         <item>Section Loss</item>
         <item>Hole</item>
         <item>Notch</item>
+    </string-array>
+
+    <string-array name="defectType_2">
+        <item>Select Defect Type</item>
+        <item>Section Loss</item>
+        <item>Notch</item>
+    </string-array>
+
+    <string-array name="rivetsDefect">
+        <item>Select Defect Type</item>
+        <item>Section Loss</item>
+        <item>Missing Rivets</item>
     </string-array>
 
     <string-array name="defectLeg">
@@ -154,13 +170,40 @@
         <item>Vertical</item>
     </string-array>
     <string-array name="defectPosition">
-        <item>Select Defect Type</item>
+        <item>Select Defect Position</item>
         <item>Top</item>
         <item>Bottom</item>
     </string-array>
+    <string-array name="anglePosition">
+        <item>Select Position</item>
+        <item>top-left</item>
+        <item>tot-right</item>
+        <item>middle-left</item>
+        <item>middle-right</item>
+        <item>bottom-left</item>
+        <item>bottom-right</item>
+    </string-array>
+
+    <string-array name="positionToBottom">
+        <item>Select Position</item>
+        <item>Top</item>
+        <item>Bottom</item>
+    </string-array>
+
     <string-array name="inchesMm">
-        <item>Select Defect Type</item>
+        <item>Select Unit</item>
         <item>Millimetres</item>
         <item>Inches</item>
+    </string-array>
+    <string-array name="methodOfMeasurement">
+        <item>Select Method</item>
+        <item>From Start</item>
+        <item>From End</item>
+        <item>From Stiffener</item>
+    </string-array>
+    <string-array name="measurementFrom">
+        <item>Select Measurement From</item>
+        <item>Top</item>
+        <item>Bottom</item>
     </string-array>
 </resources>

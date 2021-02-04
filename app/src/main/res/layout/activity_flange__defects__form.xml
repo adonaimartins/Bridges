@@ -57,9 +57,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="50dp"
+            android:paddingStart="20dp"
             android:paddingTop="25dp"
-            android:paddingEnd="65dp"
+            android:paddingEnd="5dp"
             android:paddingBottom="50dp">
 
             <LinearLayout
@@ -77,8 +77,8 @@
 
                 <Spinner
                     android:id="@+id/dropDown_defect_type_p21"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -97,8 +97,8 @@
 
                 <Spinner
                     android:id="@+id/dropdown_Position_p21"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
@@ -116,8 +116,8 @@
 
                 <Spinner
                     android:id="@+id/dropDown_option_chosen_p21"
-                    android:layout_width="74dp"
-                    android:layout_height="20dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout

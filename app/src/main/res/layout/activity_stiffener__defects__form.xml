@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Stiffener_Defects_Form">
 
-
-
-
     <LinearLayout
         android:id="@+id/statusContainer_p36"
         android:layout_width="wrap_content"
@@ -59,8 +56,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:orientation="vertical"
-        android:paddingStart="50dp"
-        android:paddingEnd="50dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonAddText_p36"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_stiffener_defects_p36"
@@ -69,8 +66,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_defect_type_p36"
@@ -78,12 +74,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/label_defect_type" />
 
             <Spinner
                 android:id="@+id/dropDown_defect_type_p36"
-                android:layout_width="90dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp" />
         </LinearLayout>
@@ -91,8 +88,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_leg_p36"
@@ -100,12 +96,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
                 android:text="@string/label_leg" />
 
             <Spinner
                 android:id="@+id/dropDown_leg_p36"
-                android:layout_width="81dp"
-                android:layout_height="27dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp" />
         </LinearLayout>
@@ -113,21 +110,22 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_measurement_from_p36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/label_measurement_from" />
 
             <Spinner
                 android:id="@+id/dropDown_measurement_from_p36"
-                android:layout_width="81dp"
-                android:layout_height="27dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp" />
         </LinearLayout>
@@ -135,8 +133,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_start_lenght_p36"
@@ -156,20 +153,12 @@
                 android:inputType="textPersonName"
                 android:text="Name" />
 
-            <Spinner
-                android:id="@+id/inchesMilimetre1_p36"
-                android:layout_width="81dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_end_lenght_p36"
@@ -189,19 +178,12 @@
                 android:inputType="textPersonName"
                 android:text="Name" />
 
-            <Spinner
-                android:id="@+id/inchesMilimetre2_p36"
-                android:layout_width="81dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_width_p36"
@@ -221,19 +203,12 @@
                 android:inputType="textPersonName"
                 android:text="Name" />
 
-            <Spinner
-                android:id="@+id/inchesMilimetre3_p36"
-                android:layout_width="81dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_deph_p36"
@@ -253,12 +228,6 @@
                 android:inputType="textPersonName"
                 android:text="Name" />
 
-            <Spinner
-                android:id="@+id/inchesMilimetre4_p36"
-                android:layout_width="81dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
         </LinearLayout>
     </LinearLayout>
 
