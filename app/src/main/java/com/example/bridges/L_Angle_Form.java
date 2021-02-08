@@ -16,7 +16,6 @@ public class L_Angle_Form extends AppCompatActivity {
     private Dropdown dropDown_widthBottom_inchesToMm = new Dropdown("Select Unit");
     private Dropdown dropDown_thickness_inchesToMm = new Dropdown("Select Unit");
 
-
     private Dropdown dropDown_headSize_inchesToMm = new Dropdown("Select Unit");
     private Dropdown dropDown_longitudinalSpacing_inchesToMm = new Dropdown("Select Unit");
     private Dropdown dropDown_transverseSpacing1_inchesToMm = new Dropdown("Select Unit");
@@ -27,8 +26,7 @@ public class L_Angle_Form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_l__angle__form);
 
-        ArrayAdapter inchesToMm_items = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.inchesMm));
+        ArrayAdapter inchesToMm_items = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.inchesMm));
 
         dropDown_length_inchesToM.addSpinnerValues(findViewById(R.id.inchesMilimetre1_p32), inchesToMm_items);
         dropDown_height_inchesToMm.addSpinnerValues(findViewById(R.id.inchesMilimetre2_p32), inchesToMm_items);

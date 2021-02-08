@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/row_deckId_p20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="0sp"
+        android:text="1"
+        android:textSize="15dp" />
+
+    <CheckBox
+        android:id="@+id/row_status_p20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="" />
+
+    <Button
+        android:id="@+id/delete_deck_p20"
+        android:layout_width="25dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:onClick="deleteDeck"
+        android:padding="0sp"
+        android:text="delete"
+        android:textSize="10dp" />
+
+    <Button
+        android:id="@+id/edit_deck_p20"
+        android:layout_width="25dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:onClick="editDeck"
+        android:padding="0sp"
+        android:text="edit"
+        android:textSize="10dp" />
+</TableRow>

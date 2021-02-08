@@ -38,17 +38,18 @@
         android:layout_marginBottom="28dp"
         android:onClick="addDeck"
         android:text="@string/buttonAddText"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout_p20"
+        app:layout_constraintBottom_toTopOf="@+id/tableDecks_p20"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TableLayout
-        android:id="@+id/tableLayout_p20"
+        android:id="@+id/tableDecks_p20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="20dp"
         android:padding="10dp"
+        android:shrinkColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -63,21 +64,21 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/title_bridge_p20"
+                android:id="@+id/th_deckNumber_p20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="3"
-                android:layout_weight="2"
+                android:layout_column="0"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:padding="0sp"
                 android:text="Deck Number"
                 android:textSize="15dp" />
 
             <TextView
-                android:id="@+id/textView12_p20"
+                android:id="@+id/th_deckDone_p20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="4"
+                android:layout_column="1"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="0sp"
@@ -88,10 +89,9 @@
                 android:id="@+id/label_structureName_p20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="4"
+                android:layout_column="2"
                 android:layout_weight="1"
                 android:gravity="center"
-
                 android:padding="0sp"
                 android:text=""
                 android:textSize="15dp" />
@@ -100,69 +100,14 @@
                 android:id="@+id/label_surveior_name_p20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="4"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="0sp"
-                android:text=""
-                android:textSize="15dp" />
-        </TableRow>
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/textView11_p20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="3"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:padding="0sp"
-                android:text="1"
-                android:textSize="15dp" />
-
-            <CheckBox
-                android:id="@+id/checkBox_p20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:text=""
-                tools:layout_editor_absoluteX="54dp"
-                tools:layout_editor_absoluteY="346dp" />
-
-            <Button
-                android:id="@+id/table_button_del_p20"
-                android:layout_width="25dp"
-                android:layout_height="40dp"
-                android:layout_column="4"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:gravity="center"
-
-                android:onClick="deleteDeck"
-                android:padding="0sp"
-                android:text="delete"
-                android:textSize="10dp" />
-
-            <Button
-                android:id="@+id/table_button_edit_p20"
-                android:layout_width="25dp"
-                android:layout_height="40dp"
-                android:layout_column="5"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:gravity="center"
-
-                android:onClick="editDeck"
-                android:padding="0sp"
-                android:text="edit"
-                android:textSize="10dp" />
+                android:textSize="15dp" />
         </TableRow>
+
 
     </TableLayout>
 
@@ -174,7 +119,7 @@
         android:layout_marginEnd="48dp"
         android:text="@string/checkboxCompletedText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout_p20" />
+        app:layout_constraintTop_toBottomOf="@+id/tableDecks_p20" />
 
     <Button
         android:id="@+id/button_submit_p20"

@@ -122,7 +122,7 @@
     <string name="table_columnName_type_of_error">Type of Error</string>
     <string name="table_title_instruction_stiffener">Click on any stiffener number to modify</string>
     <string name="table_labelBellow_scroll_instructions">Scroll Sideways To see the rest of the Bays</string>
-    <string name="table_columnName_select_bridge">Select Bridge</string>
+    <string name="table_columnName_select_bridge">Bridge ID</string>
     <string name="table_columnName_structure_name">Structure Name</string>
     <string name="table_columnName_location">Location</string>
     <string name="table_columnName_number">Number</string>

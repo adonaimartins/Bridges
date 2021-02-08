@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/idRow1_p6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/errorTypeRow1_p6"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="section Loss" />
+
+    <TextView
+        android:id="@+id/no_affected_p6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="4" />
+    <TextView
+        android:id="@+id/percent_loss_p6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="10" />
+
+    <Button
+        android:id="@+id/row_deleteBridge_p6"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:padding="0sp"
+        android:text="@string/table_button_edit"
+        android:textSize="8dp" />
+
+</TableRow>

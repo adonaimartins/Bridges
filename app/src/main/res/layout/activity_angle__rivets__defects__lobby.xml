@@ -81,7 +81,6 @@
         android:layout_height="129dp"
         android:padding="10dp"
         android:shrinkColumns="*"
-        android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -94,36 +93,53 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/idRowTitle_p6"
+                android:id="@+id/th_idRowTitle_p6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_span="1"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/table_columnName_id" />
+                android:text="ID" />
 
             <TextView
-                android:id="@+id/typeRowTitle_p6"
+                android:id="@+id/th_typeRowTitle_p6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
 
                 android:layout_span="1"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/table_columnName_type_of_error" />
+                android:text="Type of Error" />
 
             <TextView
-                android:id="@+id/empty_p6"
+                android:id="@+id/th_no_affected_p6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:gravity="center"
+
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="" />
+                android:text="no.affected" />
+
+            <TextView
+                android:id="@+id/th_percentage_afected_p6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:gravity="center"
+
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:text="% loss" />
 
             <TextView
                 android:id="@+id/textView58_p6"
                 android:layout_width="wrap_content"
+                android:layout_span="2"
+                android:layout_column="3"
 
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -137,11 +153,10 @@
             <TextView
                 android:id="@+id/idRow1_p6"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="1" />
 
             <TextView
                 android:id="@+id/errorTypeRow1_p6"
@@ -150,25 +165,33 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="section Loss" />
 
             <TextView
-                android:id="@+id/textView70_p6"
+                android:id="@+id/no_affected_p6"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="" />
-
+                android:gravity="center"
+                android:text="4" />
+            <TextView
+                android:id="@+id/percent_loss_p6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="10" />
 
             <Button
-                android:id="@+id/deleteButton_p6"
-                android:layout_width="90dp"
-
-                android:layout_height="43dp"
+                android:id="@+id/row_deleteBridge_p6"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
                 android:layout_weight="1"
-                android:onClick="deleteDefect"
-                android:text="@string/buttonDeleteText" />
+                android:padding="0sp"
+                android:text="@string/table_button_edit"
+                android:textSize="8dp" />
         </TableRow>
 
     </TableLayout>

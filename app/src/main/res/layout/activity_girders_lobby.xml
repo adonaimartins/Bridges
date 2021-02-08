@@ -36,7 +36,7 @@
 
 
     <Button
-        android:id="@+id/buttonAddText_p28"
+        android:id="@+id/buttonAddGirder_p28"
         android:layout_width="80dp"
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
@@ -62,11 +62,13 @@
 
 
         <TableLayout
-            android:id="@+id/tableLayout2_p28"
+            android:id="@+id/girdersTable_p28"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginTop="0dp"
             android:padding="0dp"
+            android:stretchColumns="*"
+            android:shrinkColumns="*"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -81,29 +83,35 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/title_bridge_p28"
+                    android:id="@+id/th_girderId_p28"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Girder id"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/th_girderName_p28"
+                    android:layout_width="54dp"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:padding="0sp"
-                    android:text="Girder"
+                    android:text="Name"
                     android:textSize="15dp" />
-
                 <TextView
-                    android:id="@+id/label_structureNumber_p28"
+                    android:id="@+id/th_no_bays_p28"
                     android:layout_width="54dp"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:padding="0sp"
-                    android:text="No. of bays"
+                    android:text="No. bays"
                     android:textSize="15dp" />
-
                 <TextView
-                    android:id="@+id/textView12_p28"
+                    android:id="@+id/ht_done_p28"
                     android:layout_width="15dp"
                     android:layout_height="wrap_content"
                     android:layout_column="3"
@@ -114,88 +122,25 @@
                     android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/label_structureName_p28"
+                    android:id="@+id/empty1_p28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="4"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="0sp"
-                    android:text=""
                     android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/label_surveior_name_p28"
+                    android:id="@+id/empty2_p28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="5"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:padding="0sp"
-                    android:text="" />
+                    android:padding="0sp"/>
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FFFFFF"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/textView11_p28"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="1"
-                    android:textSize="15dp" />
-
-                <TextView
-                    android:id="@+id/label_surveior_lastName_p28"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="10"
-                    android:textSize="15dp" />
-
-                <CheckBox
-                    android:id="@+id/checkBox_p28"
-                    android:layout_width="5dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="3"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="1"
-                    android:editable="false" />
-
-                <Button
-                    android:id="@+id/table_button_del_p28"
-                    android:layout_width="25dp"
-                    android:layout_height="40dp"
-                    android:layout_column="4"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:onClick="deleteGirder"
-                    android:padding="0sp"
-                    android:text="@string/table_button_del"
-                    android:textSize="10dp" />
-
-                <Button
-                    android:id="@+id/table_button_edit_p28"
-                    android:layout_width="25dp"
-                    android:layout_height="40dp"
-                    android:layout_column="5"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:onClick="editGirder"
-                    android:padding="0sp"
-                    android:text="@string/table_button_edit"
-                    android:textSize="10dp" />
-            </TableRow>
         </TableLayout>
     </ScrollView>
 

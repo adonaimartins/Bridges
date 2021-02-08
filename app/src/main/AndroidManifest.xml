@@ -34,10 +34,21 @@
         <activity
             android:name=".Bridges_Lobby"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Bays_Lobby"
-            android:parentActivityName=".GirderContent"
-            android:screenOrientation="landscape" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <activity
             android:name=".B2B_L_Angle_Rivets_Defects_Lobby"
             android:parentActivityName=".B2B_L_Angle_Form" />
@@ -153,7 +164,15 @@
         <activity
             android:name=".Web_Form"
             android:parentActivityName=".GirderContent" />
-        <activity android:name=".MainActivity">
+
+
+        <activity android:name=".MainActivity"/>
+
+
+        <activity
+            android:name=".Bays_Lobby"
+            android:parentActivityName=".GirderContent"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -161,5 +180,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

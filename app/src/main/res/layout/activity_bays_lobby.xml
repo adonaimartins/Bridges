@@ -71,6 +71,8 @@
             android:stretchColumns="*">
 
             <TableRow
+                android:id="@+id/stiffener_row"
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
 
@@ -301,8 +303,10 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/bays_row"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
                 android:background="#3F51B5">
 
                 <TextView
