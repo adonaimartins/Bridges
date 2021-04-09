@@ -1,0 +1,3073 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "0c274ab93da71b64c85682ae77139e3b",
+    "entities": [
+      {
+        "tableName": "Bridges",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`bridge_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `surveyor_name` TEXT, `surveyor_lastName` TEXT, `structure_name` TEXT, `structure_location` TEXT, `structure_number` TEXT, `mileageMiles` INTEGER NOT NULL, `mileageYards` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "bridge_id",
+            "columnName": "bridge_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveyor_name",
+            "columnName": "surveyor_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveyor_lastName",
+            "columnName": "surveyor_lastName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "structure_name",
+            "columnName": "structure_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "structure_location",
+            "columnName": "structure_location",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "structure_number",
+            "columnName": "structure_number",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mileageMiles",
+            "columnName": "mileageMiles",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mileageYards",
+            "columnName": "mileageYards",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "bridge_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Decks",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`deck_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `bridge_id` INTEGER NOT NULL, `deck_number` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`bridge_id`) REFERENCES `Bridges`(`bridge_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "deck_id",
+            "columnName": "deck_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bridge_id",
+            "columnName": "bridge_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deck_number",
+            "columnName": "deck_number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "deck_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Decks_bridge_id",
+            "unique": true,
+            "columnNames": [
+              "bridge_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Decks_bridge_id` ON `${TABLE_NAME}` (`bridge_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Bridges",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "bridge_id"
+            ],
+            "referencedColumns": [
+              "bridge_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Girders",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`girder_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `deck_id` INTEGER NOT NULL, `girder_name` TEXT, `girder_direction` TEXT, `elevation` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`deck_id`) REFERENCES `Decks`(`deck_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "girder_id",
+            "columnName": "girder_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deck_id",
+            "columnName": "deck_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "girder_name",
+            "columnName": "girder_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "girder_direction",
+            "columnName": "girder_direction",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "elevation",
+            "columnName": "elevation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "girder_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Girders_deck_id",
+            "unique": true,
+            "columnNames": [
+              "deck_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Girders_deck_id` ON `${TABLE_NAME}` (`deck_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Decks",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "deck_id"
+            ],
+            "referencedColumns": [
+              "deck_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Bays",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`bay_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `girder_id` INTEGER NOT NULL, `bay_position` TEXT, `length_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `length_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`girder_id`) REFERENCES `Girders`(`girder_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "bay_id",
+            "columnName": "bay_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "girder_id",
+            "columnName": "girder_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bay_position",
+            "columnName": "bay_position",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "length_mm",
+            "columnName": "length_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_inches",
+            "columnName": "length_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "bay_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Bays_girder_id",
+            "unique": true,
+            "columnNames": [
+              "girder_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Bays_girder_id` ON `${TABLE_NAME}` (`girder_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Girders",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "girder_id"
+            ],
+            "referencedColumns": [
+              "girder_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Stiffener",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`stiffener_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `bay_id` INTEGER NOT NULL, `stiffener_number` INTEGER NOT NULL, `type` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`bay_id`) REFERENCES `Bays`(`bay_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "stiffener_id",
+            "columnName": "stiffener_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bay_id",
+            "columnName": "bay_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_number",
+            "columnName": "stiffener_number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "stiffener_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Stiffener_bay_id",
+            "unique": true,
+            "columnNames": [
+              "bay_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Stiffener_bay_id` ON `${TABLE_NAME}` (`bay_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Bays",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "bay_id"
+            ],
+            "referencedColumns": [
+              "bay_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "L_Angles",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`l_angle_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `stiffener_id` INTEGER NOT NULL, `length_mm` INTEGER NOT NULL, `height_mm` INTEGER NOT NULL, `width_top_mm` INTEGER NOT NULL, `width_bottom_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `length_inches` REAL NOT NULL, `height_inches` REAL NOT NULL, `width_top_inches` REAL NOT NULL, `width_bottom_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`stiffener_id`) REFERENCES `Stiffener`(`stiffener_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "l_angle_id",
+            "columnName": "l_angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_id",
+            "columnName": "stiffener_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_mm",
+            "columnName": "length_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_mm",
+            "columnName": "height_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_top_mm",
+            "columnName": "width_top_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_bottom_mm",
+            "columnName": "width_bottom_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_inches",
+            "columnName": "length_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_inches",
+            "columnName": "height_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_top_inches",
+            "columnName": "width_top_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_bottom_inches",
+            "columnName": "width_bottom_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "l_angle_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_L_Angles_stiffener_id",
+            "unique": true,
+            "columnNames": [
+              "stiffener_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_L_Angles_stiffener_id` ON `${TABLE_NAME}` (`stiffener_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Stiffener",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "stiffener_id"
+            ],
+            "referencedColumns": [
+              "stiffener_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "L_AnglesRivets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rivet_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `l_angle_id` INTEGER NOT NULL, `type` TEXT, `headSize` INTEGER NOT NULL, `longitudinalSpacing1` INTEGER NOT NULL, `transverseSpacing1` INTEGER NOT NULL, `transverseSpacing2` INTEGER NOT NULL, `numberOfRivets` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`l_angle_id`) REFERENCES `L_Angles`(`l_angle_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "l_angle_id",
+            "columnName": "l_angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headSize",
+            "columnName": "headSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudinalSpacing1",
+            "columnName": "longitudinalSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing1",
+            "columnName": "transverseSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing2",
+            "columnName": "transverseSpacing2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberOfRivets",
+            "columnName": "numberOfRivets",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rivet_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_L_AnglesRivets_l_angle_id",
+            "unique": true,
+            "columnNames": [
+              "l_angle_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_L_AnglesRivets_l_angle_id` ON `${TABLE_NAME}` (`l_angle_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "L_Angles",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "l_angle_id"
+            ],
+            "referencedColumns": [
+              "l_angle_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "L_AnglesRivetsDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rivet_id` INTEGER NOT NULL, `type` TEXT, `percentegeLoss` REAL NOT NULL, `numberAfected` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`rivet_id`) REFERENCES `L_AnglesRivets`(`rivet_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "percentegeLoss",
+            "columnName": "percentegeLoss",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberAfected",
+            "columnName": "numberAfected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_L_AnglesRivetsDefects_rivet_id",
+            "unique": true,
+            "columnNames": [
+              "rivet_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_L_AnglesRivetsDefects_rivet_id` ON `${TABLE_NAME}` (`rivet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "L_AnglesRivets",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "rivet_id"
+            ],
+            "referencedColumns": [
+              "rivet_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "T_Angles",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`t_angle_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `stiffener_id` INTEGER NOT NULL, `length_mm` INTEGER NOT NULL, `height_mm` INTEGER NOT NULL, `width_top_mm` INTEGER NOT NULL, `width_bottom_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `length_inches` REAL NOT NULL, `height_inches` REAL NOT NULL, `width_top_inches` REAL NOT NULL, `width_bottom_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`stiffener_id`) REFERENCES `Stiffener`(`stiffener_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "t_angle_id",
+            "columnName": "t_angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_id",
+            "columnName": "stiffener_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_mm",
+            "columnName": "length_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_mm",
+            "columnName": "height_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_top_mm",
+            "columnName": "width_top_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_bottom_mm",
+            "columnName": "width_bottom_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_inches",
+            "columnName": "length_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_inches",
+            "columnName": "height_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_top_inches",
+            "columnName": "width_top_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_bottom_inches",
+            "columnName": "width_bottom_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "t_angle_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_T_Angles_stiffener_id",
+            "unique": true,
+            "columnNames": [
+              "stiffener_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_T_Angles_stiffener_id` ON `${TABLE_NAME}` (`stiffener_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Stiffener",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "stiffener_id"
+            ],
+            "referencedColumns": [
+              "stiffener_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "T_AnglesRivets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rivet_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `t_angle_id` INTEGER NOT NULL, `type` TEXT, `headSize` INTEGER NOT NULL, `longitudinalSpacing1` INTEGER NOT NULL, `transverseSpacing1` INTEGER NOT NULL, `transverseSpacing2` INTEGER NOT NULL, `numberOfRivets` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`t_angle_id`) REFERENCES `T_Angles`(`t_angle_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "t_angle_id",
+            "columnName": "t_angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headSize",
+            "columnName": "headSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudinalSpacing1",
+            "columnName": "longitudinalSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing1",
+            "columnName": "transverseSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing2",
+            "columnName": "transverseSpacing2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberOfRivets",
+            "columnName": "numberOfRivets",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rivet_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_T_AnglesRivets_t_angle_id",
+            "unique": true,
+            "columnNames": [
+              "t_angle_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_T_AnglesRivets_t_angle_id` ON `${TABLE_NAME}` (`t_angle_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "T_Angles",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "t_angle_id"
+            ],
+            "referencedColumns": [
+              "t_angle_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "T_AnglesRivetsDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rivet_id` INTEGER NOT NULL, `type` TEXT, `percentegeLoss` REAL NOT NULL, `numberAfected` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`rivet_id`) REFERENCES `T_AnglesRivets`(`rivet_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "percentegeLoss",
+            "columnName": "percentegeLoss",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberAfected",
+            "columnName": "numberAfected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_T_AnglesRivetsDefects_rivet_id",
+            "unique": true,
+            "columnNames": [
+              "rivet_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_T_AnglesRivetsDefects_rivet_id` ON `${TABLE_NAME}` (`rivet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "T_AnglesRivets",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "rivet_id"
+            ],
+            "referencedColumns": [
+              "rivet_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "BackToBackL_Angles",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`b2b_l_angle_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `stiffener_id` INTEGER NOT NULL, `length_mm` INTEGER NOT NULL, `height_mm` INTEGER NOT NULL, `width_top_mm` INTEGER NOT NULL, `width_bottom_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `length_inches` REAL NOT NULL, `height_inches` REAL NOT NULL, `width_top_inches` REAL NOT NULL, `width_bottom_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`stiffener_id`) REFERENCES `Stiffener`(`stiffener_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "b2b_l_angle_id",
+            "columnName": "b2b_l_angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_id",
+            "columnName": "stiffener_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_mm",
+            "columnName": "length_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_mm",
+            "columnName": "height_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_top_mm",
+            "columnName": "width_top_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_bottom_mm",
+            "columnName": "width_bottom_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_inches",
+            "columnName": "length_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_inches",
+            "columnName": "height_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_top_inches",
+            "columnName": "width_top_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_bottom_inches",
+            "columnName": "width_bottom_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "b2b_l_angle_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_BackToBackL_Angles_stiffener_id",
+            "unique": true,
+            "columnNames": [
+              "stiffener_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_BackToBackL_Angles_stiffener_id` ON `${TABLE_NAME}` (`stiffener_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Stiffener",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "stiffener_id"
+            ],
+            "referencedColumns": [
+              "stiffener_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "BackToBackL_AnglesRivets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rivet_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `b2b_l_angle_id` INTEGER NOT NULL, `type` TEXT, `headSize` INTEGER NOT NULL, `longitudinalSpacing1` INTEGER NOT NULL, `transverseSpacing1` INTEGER NOT NULL, `transverseSpacing2` INTEGER NOT NULL, `numberOfRivets` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`b2b_l_angle_id`) REFERENCES `BackToBackL_Angles`(`b2b_l_angle_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "b2b_l_angle_id",
+            "columnName": "b2b_l_angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headSize",
+            "columnName": "headSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudinalSpacing1",
+            "columnName": "longitudinalSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing1",
+            "columnName": "transverseSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing2",
+            "columnName": "transverseSpacing2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberOfRivets",
+            "columnName": "numberOfRivets",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rivet_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_BackToBackL_AnglesRivets_b2b_l_angle_id",
+            "unique": true,
+            "columnNames": [
+              "b2b_l_angle_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_BackToBackL_AnglesRivets_b2b_l_angle_id` ON `${TABLE_NAME}` (`b2b_l_angle_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "BackToBackL_Angles",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "b2b_l_angle_id"
+            ],
+            "referencedColumns": [
+              "b2b_l_angle_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "BackToBackL_AnglesRivetsDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rivet_id` INTEGER NOT NULL, `varchar` TEXT, `percentegeLoss` REAL NOT NULL, `numberAfected` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`rivet_id`) REFERENCES `BackToBackL_AnglesRivets`(`rivet_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "varchar",
+            "columnName": "varchar",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "percentegeLoss",
+            "columnName": "percentegeLoss",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberAfected",
+            "columnName": "numberAfected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_BackToBackL_AnglesRivetsDefects_rivet_id",
+            "unique": true,
+            "columnNames": [
+              "rivet_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_BackToBackL_AnglesRivetsDefects_rivet_id` ON `${TABLE_NAME}` (`rivet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "BackToBackL_AnglesRivets",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "rivet_id"
+            ],
+            "referencedColumns": [
+              "rivet_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "GussetPlates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`gusset_plate_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `stiffener_id` INTEGER NOT NULL, `width_top_mm` INTEGER NOT NULL, `width_bottom_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `width_top_inches` REAL NOT NULL, `width_bottom_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`stiffener_id`) REFERENCES `Stiffener`(`stiffener_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "gusset_plate_id",
+            "columnName": "gusset_plate_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_id",
+            "columnName": "stiffener_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_top_mm",
+            "columnName": "width_top_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_bottom_mm",
+            "columnName": "width_bottom_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_top_inches",
+            "columnName": "width_top_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_bottom_inches",
+            "columnName": "width_bottom_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "gusset_plate_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_GussetPlates_stiffener_id",
+            "unique": true,
+            "columnNames": [
+              "stiffener_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_GussetPlates_stiffener_id` ON `${TABLE_NAME}` (`stiffener_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Stiffener",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "stiffener_id"
+            ],
+            "referencedColumns": [
+              "stiffener_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "GussetPlatesRivets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rivet_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `gusset_plate_id` INTEGER NOT NULL, `type` TEXT, `headSize` INTEGER NOT NULL, `longitudinalSpacing1` INTEGER NOT NULL, `transverseSpacing1` INTEGER NOT NULL, `transverseSpacing2` INTEGER NOT NULL, `numberOfRivets` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`gusset_plate_id`) REFERENCES `GussetPlates`(`gusset_plate_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gusset_plate_id",
+            "columnName": "gusset_plate_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headSize",
+            "columnName": "headSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudinalSpacing1",
+            "columnName": "longitudinalSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing1",
+            "columnName": "transverseSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing2",
+            "columnName": "transverseSpacing2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberOfRivets",
+            "columnName": "numberOfRivets",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rivet_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_GussetPlatesRivets_gusset_plate_id",
+            "unique": true,
+            "columnNames": [
+              "gusset_plate_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_GussetPlatesRivets_gusset_plate_id` ON `${TABLE_NAME}` (`gusset_plate_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "GussetPlates",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "gusset_plate_id"
+            ],
+            "referencedColumns": [
+              "gusset_plate_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "GussetPlatesRivetsDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rivet_id` INTEGER NOT NULL, `type` TEXT, `percentegeLoss` REAL NOT NULL, `numberAfected` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`rivet_id`) REFERENCES `GussetPlatesRivets`(`rivet_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "percentegeLoss",
+            "columnName": "percentegeLoss",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberAfected",
+            "columnName": "numberAfected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_GussetPlatesRivetsDefects_rivet_id",
+            "unique": true,
+            "columnNames": [
+              "rivet_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_GussetPlatesRivetsDefects_rivet_id` ON `${TABLE_NAME}` (`rivet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "GussetPlatesRivets",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "rivet_id"
+            ],
+            "referencedColumns": [
+              "rivet_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "StiffenerRivets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rivet_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `stiffener_id` INTEGER NOT NULL, `type` TEXT, `headSize` INTEGER NOT NULL, `longitudinalSpacing1` INTEGER NOT NULL, `transverseSpacing1` INTEGER NOT NULL, `numberOfRivets` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`stiffener_id`) REFERENCES `Stiffener`(`stiffener_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_id",
+            "columnName": "stiffener_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headSize",
+            "columnName": "headSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudinalSpacing1",
+            "columnName": "longitudinalSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing1",
+            "columnName": "transverseSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberOfRivets",
+            "columnName": "numberOfRivets",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rivet_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_StiffenerRivets_stiffener_id",
+            "unique": true,
+            "columnNames": [
+              "stiffener_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_StiffenerRivets_stiffener_id` ON `${TABLE_NAME}` (`stiffener_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Stiffener",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "stiffener_id"
+            ],
+            "referencedColumns": [
+              "stiffener_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "StiffenerRivetsDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rivet_id` INTEGER NOT NULL, `type` TEXT, `percentegeLoss` REAL NOT NULL, `numberAfected` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`rivet_id`) REFERENCES `StiffenerRivets`(`rivet_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "percentegeLoss",
+            "columnName": "percentegeLoss",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberAfected",
+            "columnName": "numberAfected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_StiffenerRivetsDefects_rivet_id",
+            "unique": true,
+            "columnNames": [
+              "rivet_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_StiffenerRivetsDefects_rivet_id` ON `${TABLE_NAME}` (`rivet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "StiffenerRivets",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "rivet_id"
+            ],
+            "referencedColumns": [
+              "rivet_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "StiffenerDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `stiffener_id` INTEGER NOT NULL, `defectType` INTEGER NOT NULL, `leg` TEXT, `measurementFrom` TEXT, `startLength_mm` INTEGER NOT NULL, `endLength_mm` INTEGER NOT NULL, `width_mm` INTEGER NOT NULL, `depth_mm` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`stiffener_id`) REFERENCES `Stiffener`(`stiffener_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_id",
+            "columnName": "stiffener_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defectType",
+            "columnName": "defectType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "leg",
+            "columnName": "leg",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "measurementFrom",
+            "columnName": "measurementFrom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "startLength_mm",
+            "columnName": "startLength_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endLength_mm",
+            "columnName": "endLength_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_mm",
+            "columnName": "width_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "depth_mm",
+            "columnName": "depth_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_StiffenerDefects_stiffener_id",
+            "unique": true,
+            "columnNames": [
+              "stiffener_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_StiffenerDefects_stiffener_id` ON `${TABLE_NAME}` (`stiffener_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Stiffener",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "stiffener_id"
+            ],
+            "referencedColumns": [
+              "stiffener_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Webs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`web_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `girder_id` INTEGER NOT NULL, `length_mm` INTEGER NOT NULL, `height_mm` INTEGER NOT NULL, `width_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `length_inches` REAL NOT NULL, `height_inches` REAL NOT NULL, `width_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`girder_id`) REFERENCES `Girders`(`girder_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "web_id",
+            "columnName": "web_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "girder_id",
+            "columnName": "girder_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_mm",
+            "columnName": "length_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_mm",
+            "columnName": "height_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_mm",
+            "columnName": "width_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_inches",
+            "columnName": "length_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_inches",
+            "columnName": "height_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_inches",
+            "columnName": "width_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "web_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Webs_girder_id",
+            "unique": true,
+            "columnNames": [
+              "girder_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Webs_girder_id` ON `${TABLE_NAME}` (`girder_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Girders",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "girder_id"
+            ],
+            "referencedColumns": [
+              "girder_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "WebDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `web_id` INTEGER NOT NULL, `type` TEXT, `startLength` INTEGER NOT NULL, `endLength` INTEGER NOT NULL, `startHeight` INTEGER NOT NULL, `endHeight` INTEGER NOT NULL, `length` INTEGER NOT NULL, `height` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`web_id`) REFERENCES `Webs`(`web_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "web_id",
+            "columnName": "web_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "startLength",
+            "columnName": "startLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endLength",
+            "columnName": "endLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startHeight",
+            "columnName": "startHeight",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endHeight",
+            "columnName": "endHeight",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length",
+            "columnName": "length",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height",
+            "columnName": "height",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_WebDefects_web_id",
+            "unique": true,
+            "columnNames": [
+              "web_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_WebDefects_web_id` ON `${TABLE_NAME}` (`web_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Webs",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "web_id"
+            ],
+            "referencedColumns": [
+              "web_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Angles",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`angle_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `girder_id` INTEGER NOT NULL, `position` TEXT, `length_mm` INTEGER NOT NULL, `height_mm` INTEGER NOT NULL, `width_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `length_inches` REAL NOT NULL, `height_inches` REAL NOT NULL, `width_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`girder_id`) REFERENCES `Girders`(`girder_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "angle_id",
+            "columnName": "angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "girder_id",
+            "columnName": "girder_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "length_mm",
+            "columnName": "length_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_mm",
+            "columnName": "height_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_mm",
+            "columnName": "width_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length_inches",
+            "columnName": "length_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height_inches",
+            "columnName": "height_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_inches",
+            "columnName": "width_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "angle_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Angles_girder_id",
+            "unique": true,
+            "columnNames": [
+              "girder_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Angles_girder_id` ON `${TABLE_NAME}` (`girder_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Girders",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "girder_id"
+            ],
+            "referencedColumns": [
+              "girder_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "AnglesRivets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rivet_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `angle_id` INTEGER NOT NULL, `type` TEXT, `headSize` INTEGER NOT NULL, `longitudinalSpacing1` INTEGER NOT NULL, `transverseSpacing1` INTEGER NOT NULL, `transverseSpacing2` INTEGER NOT NULL, `numberOfRivets` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`angle_id`) REFERENCES `Angles`(`angle_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "angle_id",
+            "columnName": "angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headSize",
+            "columnName": "headSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudinalSpacing1",
+            "columnName": "longitudinalSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing1",
+            "columnName": "transverseSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing2",
+            "columnName": "transverseSpacing2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberOfRivets",
+            "columnName": "numberOfRivets",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rivet_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_AnglesRivets_angle_id",
+            "unique": true,
+            "columnNames": [
+              "angle_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_AnglesRivets_angle_id` ON `${TABLE_NAME}` (`angle_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Angles",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "angle_id"
+            ],
+            "referencedColumns": [
+              "angle_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "AnglesRivetsDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rivet_id` INTEGER NOT NULL, `type` TEXT, `percentegeLoss` REAL NOT NULL, `numberAfected` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`rivet_id`) REFERENCES `AnglesRivets`(`rivet_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "percentegeLoss",
+            "columnName": "percentegeLoss",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberAfected",
+            "columnName": "numberAfected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_AnglesRivetsDefects_rivet_id",
+            "unique": true,
+            "columnNames": [
+              "rivet_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_AnglesRivetsDefects_rivet_id` ON `${TABLE_NAME}` (`rivet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "AnglesRivets",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "rivet_id"
+            ],
+            "referencedColumns": [
+              "rivet_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "AnglesDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `angle_id` INTEGER NOT NULL, `type` TEXT, `leg` TEXT, `position` TEXT, `elevation` TEXT, `startLength` INTEGER NOT NULL, `endLength` INTEGER NOT NULL, `length` INTEGER NOT NULL, `startHeightWidth` INTEGER NOT NULL, `height` INTEGER NOT NULL, `width` INTEGER NOT NULL, `depth` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`angle_id`) REFERENCES `Angles`(`angle_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "angle_id",
+            "columnName": "angle_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "leg",
+            "columnName": "leg",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "elevation",
+            "columnName": "elevation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "startLength",
+            "columnName": "startLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endLength",
+            "columnName": "endLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length",
+            "columnName": "length",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startHeightWidth",
+            "columnName": "startHeightWidth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height",
+            "columnName": "height",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width",
+            "columnName": "width",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "depth",
+            "columnName": "depth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_AnglesDefects_angle_id",
+            "unique": true,
+            "columnNames": [
+              "angle_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_AnglesDefects_angle_id` ON `${TABLE_NAME}` (`angle_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Angles",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "angle_id"
+            ],
+            "referencedColumns": [
+              "angle_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "CPs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cp_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `girder_id` INTEGER NOT NULL, `position` TEXT, `location` INTEGER NOT NULL, `stiffener_start` INTEGER NOT NULL, `start_distance_mm` INTEGER NOT NULL, `start_distance_inches` REAL NOT NULL, `stiffener_end` INTEGER NOT NULL, `end_distance_mm` INTEGER NOT NULL, `end_distance_inches` REAL NOT NULL, `width_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `width_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`girder_id`) REFERENCES `Girders`(`girder_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "cp_id",
+            "columnName": "cp_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "girder_id",
+            "columnName": "girder_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "location",
+            "columnName": "location",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_start",
+            "columnName": "stiffener_start",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "start_distance_mm",
+            "columnName": "start_distance_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "start_distance_inches",
+            "columnName": "start_distance_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stiffener_end",
+            "columnName": "stiffener_end",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "end_distance_mm",
+            "columnName": "end_distance_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "end_distance_inches",
+            "columnName": "end_distance_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_mm",
+            "columnName": "width_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_inches",
+            "columnName": "width_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "cp_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_CPs_girder_id",
+            "unique": true,
+            "columnNames": [
+              "girder_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_CPs_girder_id` ON `${TABLE_NAME}` (`girder_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Girders",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "girder_id"
+            ],
+            "referencedColumns": [
+              "girder_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "CP_Rivets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rivet_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cp_id` INTEGER NOT NULL, `type` TEXT, `headSize` INTEGER NOT NULL, `longitudinalSpacing1` INTEGER NOT NULL, `transverseSpacing1` INTEGER NOT NULL, `transverseSpacing2` INTEGER NOT NULL, `numberOfRivets` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`cp_id`) REFERENCES `CPs`(`cp_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cp_id",
+            "columnName": "cp_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headSize",
+            "columnName": "headSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudinalSpacing1",
+            "columnName": "longitudinalSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing1",
+            "columnName": "transverseSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing2",
+            "columnName": "transverseSpacing2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberOfRivets",
+            "columnName": "numberOfRivets",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rivet_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_CP_Rivets_cp_id",
+            "unique": true,
+            "columnNames": [
+              "cp_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_CP_Rivets_cp_id` ON `${TABLE_NAME}` (`cp_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "CPs",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cp_id"
+            ],
+            "referencedColumns": [
+              "cp_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "CP_RivetsDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rivet_id` INTEGER NOT NULL, `type` TEXT, `percentegeLoss` REAL NOT NULL, `position_L` INTEGER NOT NULL, `numberAfected` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`rivet_id`) REFERENCES `CP_Rivets`(`rivet_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "percentegeLoss",
+            "columnName": "percentegeLoss",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "position_L",
+            "columnName": "position_L",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberAfected",
+            "columnName": "numberAfected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_CP_RivetsDefects_rivet_id",
+            "unique": true,
+            "columnNames": [
+              "rivet_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_CP_RivetsDefects_rivet_id` ON `${TABLE_NAME}` (`rivet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "CP_Rivets",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "rivet_id"
+            ],
+            "referencedColumns": [
+              "rivet_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "CP_Defects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cp_id` INTEGER NOT NULL, `type` TEXT, `elevation` TEXT, `optionChosed` TEXT, `startLength` INTEGER NOT NULL, `endLength` INTEGER NOT NULL, `length` INTEGER NOT NULL, `startWidth` INTEGER NOT NULL, `endWidth` INTEGER NOT NULL, `width` INTEGER NOT NULL, `depth` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`cp_id`) REFERENCES `CPs`(`cp_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cp_id",
+            "columnName": "cp_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "elevation",
+            "columnName": "elevation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "optionChosed",
+            "columnName": "optionChosed",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "startLength",
+            "columnName": "startLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endLength",
+            "columnName": "endLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length",
+            "columnName": "length",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startWidth",
+            "columnName": "startWidth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endWidth",
+            "columnName": "endWidth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width",
+            "columnName": "width",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "depth",
+            "columnName": "depth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_CP_Defects_cp_id",
+            "unique": true,
+            "columnNames": [
+              "cp_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_CP_Defects_cp_id` ON `${TABLE_NAME}` (`cp_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "CPs",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cp_id"
+            ],
+            "referencedColumns": [
+              "cp_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Flanges",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`flange_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `girder_id` INTEGER NOT NULL, `position` TEXT, `width_mm` INTEGER NOT NULL, `thickness_mm` INTEGER NOT NULL, `width_inches` REAL NOT NULL, `thickness_inches` REAL NOT NULL, `preffered_unit` TEXT, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`girder_id`) REFERENCES `Girders`(`girder_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "flange_id",
+            "columnName": "flange_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "girder_id",
+            "columnName": "girder_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "width_mm",
+            "columnName": "width_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_mm",
+            "columnName": "thickness_mm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width_inches",
+            "columnName": "width_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thickness_inches",
+            "columnName": "thickness_inches",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preffered_unit",
+            "columnName": "preffered_unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "flange_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Flanges_girder_id",
+            "unique": true,
+            "columnNames": [
+              "girder_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Flanges_girder_id` ON `${TABLE_NAME}` (`girder_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Girders",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "girder_id"
+            ],
+            "referencedColumns": [
+              "girder_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "FlangesRivets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rivet_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `flange_id` INTEGER NOT NULL, `type` TEXT, `headSize` INTEGER NOT NULL, `longitudinalSpacing1` INTEGER NOT NULL, `transverseSpacing1` INTEGER NOT NULL, `transverseSpacing2` INTEGER NOT NULL, `numberOfRivets` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`flange_id`) REFERENCES `Flanges`(`flange_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flange_id",
+            "columnName": "flange_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headSize",
+            "columnName": "headSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudinalSpacing1",
+            "columnName": "longitudinalSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing1",
+            "columnName": "transverseSpacing1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transverseSpacing2",
+            "columnName": "transverseSpacing2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberOfRivets",
+            "columnName": "numberOfRivets",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rivet_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_FlangesRivets_flange_id",
+            "unique": true,
+            "columnNames": [
+              "flange_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_FlangesRivets_flange_id` ON `${TABLE_NAME}` (`flange_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Flanges",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "flange_id"
+            ],
+            "referencedColumns": [
+              "flange_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "FlangesRivetsDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rivet_id` INTEGER NOT NULL, `type` TEXT, `percentegeLoss` REAL NOT NULL, `numberAfected` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`rivet_id`) REFERENCES `FlangesRivets`(`rivet_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rivet_id",
+            "columnName": "rivet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "percentegeLoss",
+            "columnName": "percentegeLoss",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberAfected",
+            "columnName": "numberAfected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_FlangesRivetsDefects_rivet_id",
+            "unique": true,
+            "columnNames": [
+              "rivet_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_FlangesRivetsDefects_rivet_id` ON `${TABLE_NAME}` (`rivet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "FlangesRivets",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "rivet_id"
+            ],
+            "referencedColumns": [
+              "rivet_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "FlangeDefects",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`defect_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `flange_id` INTEGER NOT NULL, `type` TEXT, `position` TEXT, `optionChosed` TEXT, `startLength` INTEGER NOT NULL, `endLength` INTEGER NOT NULL, `length` INTEGER NOT NULL, `startWidth` INTEGER NOT NULL, `endWidth` INTEGER NOT NULL, `width` INTEGER NOT NULL, `depth` INTEGER NOT NULL, `sync_status` INTEGER NOT NULL, FOREIGN KEY(`flange_id`) REFERENCES `Flanges`(`flange_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "defect_id",
+            "columnName": "defect_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flange_id",
+            "columnName": "flange_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "optionChosed",
+            "columnName": "optionChosed",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "startLength",
+            "columnName": "startLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endLength",
+            "columnName": "endLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "length",
+            "columnName": "length",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startWidth",
+            "columnName": "startWidth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endWidth",
+            "columnName": "endWidth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width",
+            "columnName": "width",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "depth",
+            "columnName": "depth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_status",
+            "columnName": "sync_status",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "defect_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_FlangeDefects_flange_id",
+            "unique": true,
+            "columnNames": [
+              "flange_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_FlangeDefects_flange_id` ON `${TABLE_NAME}` (`flange_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Flanges",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "flange_id"
+            ],
+            "referencedColumns": [
+              "flange_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0c274ab93da71b64c85682ae77139e3b')"
+    ]
+  }
+}

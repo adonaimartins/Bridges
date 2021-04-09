@@ -41,6 +41,40 @@ import com.example.bridges.Model.T_AnglesRivets;
 import com.example.bridges.Model.T_AnglesRivetsDefects;
 import com.example.bridges.Model.WebDefects;
 import com.example.bridges.Model.Webs;
+import com.example.bridges.dao.AnglesDao;
+import com.example.bridges.dao.AnglesDefectsDao;
+import com.example.bridges.dao.AnglesRivetsDao;
+import com.example.bridges.dao.AnglesRivetsDefectsDao;
+import com.example.bridges.dao.BackToBackL_AnglesDao;
+import com.example.bridges.dao.BackToBackL_AnglesRivetsDao;
+import com.example.bridges.dao.BackToBackL_AnglesRivetsDefectsDao;
+import com.example.bridges.dao.BaysDao;
+import com.example.bridges.dao.BridgesDao;
+import com.example.bridges.dao.CP_DefectsDao;
+import com.example.bridges.dao.CP_RivetsDao;
+import com.example.bridges.dao.CP_RivetsDefectsDao;
+import com.example.bridges.dao.CPsDao;
+import com.example.bridges.dao.DecksDao;
+import com.example.bridges.dao.FlangeDefectsDao;
+import com.example.bridges.dao.FlangesDao;
+import com.example.bridges.dao.FlangesRivetsDao;
+import com.example.bridges.dao.FlangesRivetsDefectsDao;
+import com.example.bridges.dao.GirdersDao;
+import com.example.bridges.dao.GussetPlatesDao;
+import com.example.bridges.dao.GussetPlatesRivetsDao;
+import com.example.bridges.dao.GussetPlatesRivetsDefectsDao;
+import com.example.bridges.dao.L_AnglesDao;
+import com.example.bridges.dao.L_AnglesRivetsDao;
+import com.example.bridges.dao.L_AnglesRivetsDefectsDao;
+import com.example.bridges.dao.StiffenerDao;
+import com.example.bridges.dao.StiffenerDefectsDao;
+import com.example.bridges.dao.StiffenerRivetsDao;
+import com.example.bridges.dao.StiffenerRivetsDefectsDao;
+import com.example.bridges.dao.T_AnglesDao;
+import com.example.bridges.dao.T_AnglesRivetsDao;
+import com.example.bridges.dao.T_AnglesRivetsDefectsDao;
+import com.example.bridges.dao.WebDefectsDao;
+import com.example.bridges.dao.WebsDao;
 
 @Database(entities = {
         Bridges.class,
@@ -78,7 +112,7 @@ import com.example.bridges.Model.Webs;
         FlangesRivetsDefects.class,
         FlangeDefects.class
 
-}, version = 1)
+}, version = 1,  exportSchema = true)
 public abstract class BridgesDatabase extends RoomDatabase {
 
 

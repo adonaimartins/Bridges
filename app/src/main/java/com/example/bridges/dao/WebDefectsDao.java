@@ -1,4 +1,4 @@
-package com.example.bridges.database;
+package com.example.bridges.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -35,7 +35,7 @@ public interface WebDefectsDao {
     //the ones bellow are unnecesary for now
 
     //in case I want to select all the data
-    @Query("SELECT * FROM T_AnglesRivetsDefects ORDER BY defect_id DESC")
+    @Query("SELECT * FROM WebDefects ORDER BY defect_id DESC")
     LiveData<List<WebDefects>> getAll();
 
     ///in case I want to delete all the data

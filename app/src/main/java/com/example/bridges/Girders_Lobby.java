@@ -55,9 +55,7 @@ public class Girders_Lobby extends AppCompatActivity  {
         girders.add(girder3);
 
         girderCounter = 1;
-
         loadGirders(girders);
-
     }
 
     private void loadGirders(List<List<String>> girders) {
@@ -75,7 +73,11 @@ public class Girders_Lobby extends AppCompatActivity  {
         startActivity(intent);
     }
     public void deleteGirder(View view) {
-        TextView rowId = (TextView)view.findViewById(R.id.row_deckId_p20);
+        TextView rowId = (TextView)view.findViewById(R.id.girderId_p28);
+
+
+        Log.d("Condition value", rowId.getText().toString());
+
         if(Integer.parseInt(rowId.getText().toString()) == girderCounter -1 ){
             girderCounter--;
         }
@@ -96,7 +98,6 @@ public class Girders_Lobby extends AppCompatActivity  {
         Button editGirder = (Button)girderRow.findViewById(R.id.table_button_edit_p28);
         Button deleteGirder = (Button)girderRow.findViewById(R.id.table_button_del_p28);
 
-
         girderId.setText(rowItems.get(0));
         girderName.setText(rowItems.get(1));
         numberOfBays.setText(rowItems.get(2));
@@ -112,13 +113,11 @@ public class Girders_Lobby extends AppCompatActivity  {
             }
         });
         deleteGirder.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
                 deleteGirder(girderRow);
             }
         });
-
         girderTable.addView(girderRow);
         girderCounter++;
     }

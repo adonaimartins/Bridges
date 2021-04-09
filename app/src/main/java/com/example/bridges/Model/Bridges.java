@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Bridges")
-public class Bridge {
+public class Bridges {
 
 
     @PrimaryKey(autoGenerate = true)
@@ -18,11 +18,12 @@ public class Bridge {
     private String structure_number; // varchar(255) NOT NULL,
     private int mileageMiles; // INT,
     private int mileageYards; // INT
-    private int Sync_status;
+    private int sync_status;
 
     //@Ignore in case I want to add a property to ignore
 
-    public Bridge(String surveyor_name, String surveyor_lastName, String structure_name, String structure_location, String structure_number, int mileageMiles, int mileageYards) {
+
+    public Bridges(String surveyor_name, String surveyor_lastName, String structure_name, String structure_location, String structure_number, int mileageMiles, int mileageYards, int sync_status) {
         this.surveyor_name = surveyor_name;
         this.surveyor_lastName = surveyor_lastName;
         this.structure_name = structure_name;
@@ -30,6 +31,7 @@ public class Bridge {
         this.structure_number = structure_number;
         this.mileageMiles = mileageMiles;
         this.mileageYards = mileageYards;
+        this.sync_status = sync_status;
     }
 
     public void setBridge_id(int bridge_id) {
@@ -66,5 +68,13 @@ public class Bridge {
 
     public int getMileageYards() {
         return mileageYards;
+    }
+
+    public int getSync_status() {
+        return sync_status;
+    }
+
+    public void setSync_status(int sync_status) {
+        this.sync_status = sync_status;
     }
 }

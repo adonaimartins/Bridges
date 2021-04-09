@@ -52,14 +52,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_bridges_p12">
-
-        <TableLayout
-            android:id="@+id/bridgesTable"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp">
+            android:orientation="vertical">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -79,7 +75,7 @@
                     android:padding="0sp"
                     android:text="@string/table_columnName_select_bridge"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -92,7 +88,7 @@
                     android:padding="0sp"
                     android:text="@string/table_columnName_structure_name"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -105,7 +101,7 @@
                     android:padding="0sp"
                     android:text="@string/table_columnName_location"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -118,7 +114,7 @@
                     android:padding="0sp"
                     android:text="@string/table_columnName_number"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -126,12 +122,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="4"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
                     android:padding="0sp"
                     android:text=""
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -139,15 +135,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="5"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
                     android:padding="0sp"
                     android:text=""
                     android:textColor="#FFFFFF"
-                    android:textSize="10dp"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
+
             </TableRow>
 
-        </TableLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bridges_data_p12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
     </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

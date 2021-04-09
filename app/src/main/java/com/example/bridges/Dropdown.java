@@ -18,11 +18,12 @@ public class Dropdown {
     public void addSpinnerValues(View spinnerView, ArrayAdapter spinnerListItems){
 
 
-            Spinner dropDown_elevation = (Spinner) spinnerView;//spinerID
+            Spinner dropDown= (Spinner) spinnerView;//spinerID
 
             spinnerListItems.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            dropDown_elevation.setAdapter(spinnerListItems);
-            dropDown_elevation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            dropDown.setAdapter(spinnerListItems);
+
+            dropDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                                              @Override
                                                              public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 

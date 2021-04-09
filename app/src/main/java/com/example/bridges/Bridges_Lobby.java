@@ -1,36 +1,79 @@
 package com.example.bridges;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.bridges.Model.Bridges;
+import com.example.bridges.database.DatabaseContract;
+import com.example.bridges.recyclerAdapters.BridgeAdapter;
+import com.example.bridges.viewModel.BridgesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bridges_Lobby extends AppCompatActivity {
 
-    TableLayout table;
-
-    List<String> bridge1 = new ArrayList<String>();
-    List<String> bridge2 = new ArrayList<String>();
-    List<String> bridge3 = new ArrayList<String>();
-    List<String> bridge4 = new ArrayList<String>();
-
-    List<List<String>> bridges = new ArrayList<List<String>>();
+    RecyclerView recyclerView;
+    BridgesViewModel bridgesViewModel; //this is for the database
 
 
 
+    List<Bridges> allBridges; //this is for testing - delete later
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bridges_lobby);
+        final BridgeAdapter bridgeAdapter = new BridgeAdapter();
+       // bridgesViewModel = ViewModelProviders.of(this).get(BridgesViewModel.class);
+        loadTableData();//testing method
 
-        table = findViewById(R.id.bridgesTable);
+
+        recyclerView = findViewById(R.id.bridges_data_p12);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(bridgeAdapter);
+
+        bridgeAdapter.submitList(allBridges); //testing method
+
+        /*
+        bridgesViewModel.getAllBridges().observe(this, new Observer<List<Bridges>>() {
+            @Override
+            public void onChanged(List<Bridges> bridges) {
+                bridgeAdapter.submitList(bridges);
+            }
+        });
+
+*/
+
+        bridgeAdapter.setEditOnClickListener(new BridgeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(Bridges bridge) {
+
+
+               // bridgesViewModel.delete(bridgeAdapter.getBridgesAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(Bridges_Lobby.this, "Note Edited ", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        bridgeAdapter.setDeleteOnClickListener(new BridgeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(Bridges bridge) {
+
+
+               // bridgesViewModel.delete(bridgeAdapter.getBridgesAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(Bridges_Lobby.this, "Note Deleted ", Toast.LENGTH_SHORT).show();
+            }
+        });
         loadTableData();
     }
 
@@ -40,7 +83,7 @@ public class Bridges_Lobby extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+/*
     private void addRow(List<String> bridgeList){
 
         View row = getLayoutInflater().inflate(R.layout.table_bridge_row, null, false);
@@ -70,15 +113,15 @@ public class Bridges_Lobby extends AppCompatActivity {
                 deleteRow(row);
             }
         });
-        table.addView(row);
+        bridgesViewModel.addView(row);
     }
 
 
 
-    private void deleteRow(View view) {
-        table.removeView(view);
+   // private void deleteRow(View view) {
+        bridgesViewModel.removeView(view);
     }
-
+*/
     private void editBridge() {
         Intent intent = new Intent(this, Bridge_Form.class);
         startActivity(intent);
@@ -89,27 +132,42 @@ public class Bridges_Lobby extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void loadTableData(){
+    private void loadTableData(){ //method is for testing, load from database should replace it
 
-        bridge1.add("1");
-        bridge1.add("Andromeda");
-        bridge1.add("Caracas");
-        bridge1.add("4UDeck");
-        bridge2.add("2");
-        bridge2.add("Canal");
-        bridge2.add("Leeds");
-        bridge2.add("4dddk");
-        bridge3.add("3");
-        bridge3.add("London Bridge");
-        bridge3.add("London");
-        bridge3.add("cuadshhf");
+        allBridges = new ArrayList<Bridges>();
+        Bridges bridge1 = new Bridges(
+                "Andy",
+                "Duff",
+                "Andromeda",
+                "La Guaira",
+                "AB-1232",
+                150,
+                1500,
+                DatabaseContract.SYNC_STATUS_FAILED);
+        Bridges bridge2 = new Bridges(
+                "Adonai",
+                "Martins",
+                "Canal",
+                "Leeds",
+                "4dddk",
+                150,
+                1500,
+                DatabaseContract.SYNC_STATUS_FAILED);
+        Bridges bridge3 = new Bridges(
+                "Andy",
+                "Duff",
+                "London Bridge",
+                "London",
+                "4UDeck",
+                150,
+                1500,
+                DatabaseContract.SYNC_STATUS_FAILED);
 
-        bridges.add(bridge1);
-        bridges.add(bridge2);
-        bridges.add(bridge3);
-        for (int index = 0; index < bridges.size(); index++){
-            addRow(bridges.get(index));
-        }
+        allBridges.add(bridge1);
+        allBridges.add(bridge2);
+        allBridges.add(bridge3);
+
+
     }
 
 }

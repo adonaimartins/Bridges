@@ -1,4 +1,4 @@
-package com.example.bridges.database;
+package com.example.bridges.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

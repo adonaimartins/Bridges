@@ -166,13 +166,13 @@
             android:parentActivityName=".GirderContent" />
 
 
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".Bays_Lobby"            android:parentActivityName=".GirderContent"
+            android:screenOrientation="landscape"/>
 
 
         <activity
-            android:name=".Bays_Lobby"
-            android:parentActivityName=".GirderContent"
-            android:screenOrientation="landscape">
+            android:name=".MainActivity"
+>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

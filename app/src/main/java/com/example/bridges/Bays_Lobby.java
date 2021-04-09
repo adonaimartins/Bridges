@@ -19,11 +19,6 @@ import android.widget.TextView;
 
 public class Bays_Lobby extends AppCompatActivity {
 
-            //stiffener_row
-            // bays_row
-
-   // final float scale = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 65, getResources().getDisplayMetrics());
-
     TableRow stiffenerRow;
     TableRow bays_row;
 
@@ -36,6 +31,7 @@ public class Bays_Lobby extends AppCompatActivity {
 
         stiffenerRow = (TableRow)findViewById(R.id.stiffener_row);
         bays_row = (TableRow)findViewById(R.id.bays_row);
+
         loadStiffeners();
     }
 
@@ -52,37 +48,6 @@ public class Bays_Lobby extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void addBay(int index){
-
-        int padding = (int) CalculationsUtility.convertPixelsToDp(18, this);
-        int topBottom = (int) CalculationsUtility.convertPixelsToDp(20, this);
-        int marginWidth = (int) CalculationsUtility.convertPixelsToDp(1, this);
-
-        //stiffenerRow
-        TextView bay = new TextView(this);
-
-        bay.setText(Integer.toString(index));
-        bay.setPadding(padding,padding,padding,padding);
-        bay.setTextColor(Color.rgb(233,30,99));
-        bay.setBackgroundColor(Color.rgb(255,255,255));
-        bay.setGravity(Gravity.CENTER);
-
-        TableRow.LayoutParams layout = new TableRow.LayoutParams();
-        layout.setMargins(1,0,1,0);
-        layout.weight = index;
-        bay.setLayoutParams(layout);
-/*
-        TableLayout.LayoutParams layoutParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT);
-        layout.setMargins(1,0,1,0);*/
-     //  bay.setLayoutParams(new ViewGroup.MarginLayoutParams(10,10)); //here the index of the stiffener
-/*
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    */
-        bays_row.addView(bay);
-
-    }
-
     private void addStiffener(int index){
         TextView stiffener = new TextView(this);
 
@@ -97,19 +62,42 @@ public class Bays_Lobby extends AppCompatActivity {
         TableRow.LayoutParams layout = new TableRow.LayoutParams();
         stiffener.setLayoutParams(layout); //here the index of the stiffener
         layout.column = index;
+        layout.weight = 1;
 
-
-/*                                <TextView
-                    android:id="@+id/title_girders_p10"
-                    android:layout_column="0"
-                    android:layout_weight="1"
-                    */
+        stiffener.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchStiffenerForm(v);
+            }
+        });
 
         stiffenerRow.addView(stiffener);
     }
 
+    private void addBay(int index){
+        TextView bay = new TextView(this);
+
+        int padding = (int) CalculationsUtility.convertPixelsToDp(18, this);
+        int topBottom = (int) CalculationsUtility.convertPixelsToDp(20, this);
+        int marginWidth = (int) CalculationsUtility.convertPixelsToDp(2, this);
+
+        bay.setText(Integer.toString(index));
+        bay.setPadding(padding,padding,padding,padding);
+        bay.setTextColor(Color.rgb(233,30,99));
+        bay.setBackgroundColor(Color.rgb(255,255,255));
+        bay.setGravity(Gravity.CENTER);
+
+        TableRow.LayoutParams layout = new TableRow.LayoutParams();
+        layout.setMargins(marginWidth,0,1,0);
+        bay.setLayoutParams(layout);
+
+        bays_row.addView(bay);
+    }
+
+
+
     private void loadStiffeners(){
-        for(int index=0; index<10; index++ ){
+        for(int index=0; index<30; index++ ){
             addStiffener(index);
             if(index !=0){
                 addBay(index);

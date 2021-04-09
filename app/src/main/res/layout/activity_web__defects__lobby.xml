@@ -133,8 +133,7 @@
 
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="TextView" />
+                android:gravity="center"/>
 
             <TextView
                 android:id="@+id/errorTypeRow1_p46"
@@ -142,26 +141,29 @@
 
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/empty3_p46"
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="" />
+                android:gravity="center"/>
 
 
             <Button
-                android:id="@+id/deleteButton_p46"
-                android:layout_width="90dp"
-
-                android:layout_height="43dp"
+                android:id="@+id/row_editDelete_p46"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
                 android:layout_weight="1"
-                android:onClick="deleteDefect"
-                android:text="@string/buttonDeleteText" />
+                android:padding="0sp"
+                android:text="@string/table_button_del"
+                android:textSize="8dp" />
+            <Button
+                android:id="@+id/row_editDefect_p46"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:padding="0sp"
+                android:text="@string/table_button_edit"
+                android:textSize="8dp" />
         </TableRow>
 
     </TableLayout>

@@ -5,29 +5,72 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bridges.Bridges_Lobby;
+import com.example.bridges.MainActivity;
 import com.example.bridges.Model.Bridges;
 import com.example.bridges.R;
-
 import java.util.ArrayList;
 
-public class BridgeRecyclerAdapter extends RecyclerView.Adapter<BridgeRecyclerAdapter.MyViewHolder> {
+public class BridgeAdapter extends ListAdapter<Bridges, BridgeAdapter.BridgesViewHolder> {
 
-    private ArrayList<Bridges> bridgesList;
-   // private RecyclerViewClickListener listener;
+   // private ArrayList<Bridges> bridgesList;
+    private OnItemClickListener deleteOnClickListener;
+    private OnItemClickListener editOnClickListener;
 
-    //CONSTRUCTOR
-
-
-    public BridgeRecyclerAdapter(ArrayList<Bridges> bridgesList) {
-        this.bridgesList = bridgesList;
+    public BridgeAdapter() {
+        super(DIFF_CALLBACK);
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
 
+    ///here we compare list items and see whether they are the same or contents are the same
+    //we compare wether IDs are the same
+    //then, we compare whether contents are the same
+    public static final DiffUtil.ItemCallback<Bridges> DIFF_CALLBACK = new DiffUtil.ItemCallback<Bridges>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Bridges oldItem, @NonNull Bridges newItem) {
+            return oldItem.getBridge_id() == oldItem.getBridge_id();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Bridges oldItem, @NonNull Bridges newItem) {
+            return
+                    (oldItem.getSurveyor_name().equals(newItem.getSurveyor_name())) &&
+                    (oldItem.getSurveyor_lastName().equals(newItem.getSurveyor_lastName())) &&
+                    (oldItem.getStructure_name().equals(newItem.getStructure_name())) &&
+                    (oldItem.getStructure_location().equals(newItem.getStructure_location())) &&
+                    (oldItem.getStructure_number().equals(newItem.getStructure_number())) &&
+                    (oldItem.getMileageMiles() == newItem.getMileageMiles()) &&
+                    (oldItem.getMileageYards() == newItem.getMileageYards()) &&
+                    (oldItem.getSync_status() == newItem.getSync_status());
+        }
+    };
+    @NonNull
+    @Override
+    public BridgesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new BridgesViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.table_bridge_row, parent, false));
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BridgesViewHolder holder, int position) {
+        Bridges bridge = getItem(position);
+        holder.row_bridgeId.setText(Integer.toString(bridge.getBridge_id()));
+        holder.row_bridge_name.setText(bridge.getStructure_name());
+        holder.row_bridge_location.setText(bridge.getStructure_location());
+        holder.row_bridge_number.setText(bridge.getStructure_number());
+    }
+
+    ///returns the Model Object from the list it was passed
+    public Bridges getBridgesAt(int position) {
+        return getItem(position);
+    }
+    class BridgesViewHolder extends RecyclerView.ViewHolder {
         private TextView row_bridgeId;
         private TextView row_bridge_name;
         private TextView row_bridge_location;
@@ -35,10 +78,8 @@ public class BridgeRecyclerAdapter extends RecyclerView.Adapter<BridgeRecyclerAd
         private Button row_editBridge;
         private Button row_deleteBridge;
 
-
-        public MyViewHolder(final View itemView) {
+        public BridgesViewHolder(@NonNull View itemView) {
             super(itemView);
-
             row_bridgeId = itemView.findViewById(R.id.row_bridgeId);
             row_bridge_name = itemView.findViewById(R.id.row_bridge_name);
             row_bridge_location = itemView.findViewById(R.id.row_bridge_location);
@@ -46,61 +87,41 @@ public class BridgeRecyclerAdapter extends RecyclerView.Adapter<BridgeRecyclerAd
             row_editBridge = itemView.findViewById(R.id.row_editBridge);
             row_deleteBridge = itemView.findViewById(R.id.row_deleteBridge);
 
-            /*
-            row_editBridge.setOnClickListener(new View.OnClickListener(){
+            row_editBridge.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    editBridge();
+                    int position = getAdapterPosition();
+
+                    if (editOnClickListener != null && position != RecyclerView.NO_POSITION ){
+                        editOnClickListener.onItemClickListener(getItem(position));
+
+                    }
                 }
             });
 
-            row_deleteBridge.setOnClickListener(new View.OnClickListener(){
+            row_deleteBridge.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    deleteRow(itemView);
+                    int position = getAdapterPosition();
+
+                    if(deleteOnClickListener != null && position != RecyclerView.NO_POSITION){
+                        deleteOnClickListener.onItemClickListener(getItem(position));
+                    }
                 }
-            });*/
+            });
         }
     }
 
-    //OVERRIDE METHODS
-    @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.table_bridge_row, parent, false);
-        return new MyViewHolder(itemView);
+    public interface OnItemClickListener { //on the other sheet we will only have the Model object
+        void onItemClickListener(Bridges bridge);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
-        int bridgeId = bridgesList.get(position).getBridge_id();
-        String bridge_name = bridgesList.get(position).getSurveyor_name();
-        String bridge_location = bridgesList.get(position).getStructure_location();
-        String bridge_number = bridgesList.get(position).getStructure_number();
-
-        holder.row_bridgeId.setText(bridgeId);
-        holder.row_bridge_name.setText(bridgeId);
-        holder.row_bridge_location.setText(bridgeId);
-        holder.row_bridge_number.setText(bridgeId);
+    public void setEditOnClickListener(OnItemClickListener onClickListener){
+        this.deleteOnClickListener = onClickListener;
     }
 
-    @Override
-    public int getItemCount() {
-        return bridgesList.size();
+    public void setDeleteOnClickListener(OnItemClickListener onClickListener){
+        this.editOnClickListener = onClickListener;
     }
-
-/*
-    ////edit and delete methods
-    private void editBridge() {
-        Intent intent = new Intent(this, Bridge_Form.class);
-        startActivity(intent);
-    }
-
-    private void deleteRow(View view) {
-        table.removeView(view);
-    }
-*/
-
 }

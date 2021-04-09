@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 public class Web_Defects_Form extends AppCompatActivity {
 
     //object that adds data to spinners
-    private Dropdown dropDown_defectType = new Dropdown("Select Unit");
+    private Dropdown dropDown_defectType = new Dropdown("Select Defect Type");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,6 @@ public class Web_Defects_Form extends AppCompatActivity {
                 this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.inchesMm));
 
         dropDown_defectType.addSpinnerValues(findViewById(R.id.dropDown_defect_type_p47), defectType_items);
-
-
     }
 
     public void submit(View view) {

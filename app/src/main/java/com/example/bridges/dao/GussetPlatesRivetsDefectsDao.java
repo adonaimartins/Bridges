@@ -1,4 +1,4 @@
-package com.example.bridges.database;
+package com.example.bridges.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,7 +7,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.bridges.Model.GussetPlatesRivets;
 import com.example.bridges.Model.GussetPlatesRivetsDefects;
 
 import java.util.List;
