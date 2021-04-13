@@ -46,6 +46,8 @@
         android:padding="0sp"
         android:textSize="12sp" />
 
+
+
     <Button
         android:id="@+id/row_editBridge"
         android:layout_width="35dp"

@@ -112,7 +112,7 @@ import com.example.bridges.dao.WebsDao;
         FlangesRivetsDefects.class,
         FlangeDefects.class
 
-}, version = 1,  exportSchema = true)
+}, version = 1)
 public abstract class BridgesDatabase extends RoomDatabase {
 
 

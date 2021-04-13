@@ -2,14 +2,11 @@ package com.example.bridges.repositories;
 
 import android.app.Application;
 import android.os.AsyncTask;
-
 import androidx.lifecycle.LiveData;
-
 import com.example.bridges.Model.Bridges;
 import com.example.bridges.dao.BridgesDao;
 import com.example.bridges.database.BridgesDatabase;
 import com.example.bridges.database.DatabaseContract;
-
 import java.util.List;
 
 public class BridgesRepository {
@@ -18,10 +15,10 @@ public class BridgesRepository {
     private LiveData<List<Bridges>> allBridges;
 
     public BridgesRepository(Application application){
-
         BridgesDatabase bridgesDatabase = BridgesDatabase.getInstance(application);
         bridgesDao = bridgesDatabase.bridgesDao();
         allBridges = bridgesDao.getAllBridges();
+
     }
 
     public void insert(Bridges bridge) {
@@ -36,9 +33,23 @@ public class BridgesRepository {
     public void deleteAllBridges() {
         new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.DELETE_ALL).execute((Bridges)null);
     }
+    public Bridges selectBrigeById(int id) {
+        BridgeByIdAsyncTask asyncTask = new BridgeByIdAsyncTask(bridgesDao, id);
+        asyncTask.execute();
+        return asyncTask.getBridge();
+    }
+/*
+    public LiveData<List<Bridges>> getAllBridges() {
+        BridgeGetAllAsyncTask asyncTask = new BridgeGetAllAsyncTask();
+        asyncTask.execute();
+        return asyncTask.getAllBridges();
+    }*/
 
     public LiveData<List<Bridges>> getAllBridges() {
+       // System.out.println("aqui" + allBridges.getValue());
+
         return allBridges;
+
     }
 
     private static class BridgeOpeationAsyncTask extends AsyncTask<Bridges, Void, Void> {
@@ -71,7 +82,39 @@ public class BridgesRepository {
         }
     }
 
+    private static class BridgeByIdAsyncTask extends AsyncTask<Void, Void, Void> {
+        private BridgesDao bridgesDao;
+        private int id;
+        private Bridges bridge;
 
+        public BridgeByIdAsyncTask(BridgesDao bridgesDao, int id){
+            this.bridgesDao = bridgesDao;
+            this.id = id;
+        }
 
+        public Bridges getBridge(){
+            return bridge;
+        }
 
+        @Override
+        protected Void doInBackground(Void... voids) {
+            bridge = bridgesDao.getBrigeById(id);
+            return null;
+        }
+    }
+/*
+    private static class BridgeGetAllAsyncTask extends AsyncTask<Void, Void, Void> {
+        private BridgesDao bridgesDao;
+        LiveData<List<Bridges>> bridges;
+
+        public LiveData<List<Bridges>> getAllBridges(){
+            return bridges;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            bridges = bridgesDao.getAllBridges();
+            return null;
+        }
+    }*/
 }

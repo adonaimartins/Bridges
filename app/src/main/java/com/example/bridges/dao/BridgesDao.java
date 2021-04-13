@@ -23,10 +23,13 @@ public interface BridgesDao {
     @Delete
     void delete(Bridges bridge);
 
+    @Query("SELECT * FROM Bridges WHERE bridge_id =:id" )
+    Bridges getBrigeById(int id);
+
     @Query("DELETE FROM Bridges")
     void deleteAllBridges();
 
-    @Query("SELECT * FROM Bridges ORDER BY structure_name DESC")
+    @Query("SELECT * FROM Bridges ORDER BY bridge_id DESC")
     LiveData<List<Bridges>> getAllBridges();
 
 }

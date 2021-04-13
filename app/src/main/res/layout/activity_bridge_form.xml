@@ -155,13 +155,23 @@
                 android:orientation="horizontal"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:gravity="end">
+                android:layout_weight="4"
+                >
+                <Button
 
+                    android:id="@+id/buttonPrevious_p11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="launchBridgesLobby"
+                    android:text="@string/Button_previous"
+                    android:layout_weight="1"
+                    android:layout_marginRight="90dp"/>
                 <Button
                     android:id="@+id/buttonNext_p11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="launchDeckLobby"
+                    android:layout_weight="1"
                     android:text="@string/button_next" />
             </LinearLayout>
         </LinearLayout>

@@ -12,6 +12,7 @@ public class DatabaseContract {
     public static final int DELETE = 8;
     public static final int DELETE_ALL = 16;
     public static final int SELECT_FROM_PARENT = 32;
+    public static final int SELECT_BY_ID = 64;
 
 
 

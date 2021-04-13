@@ -132,6 +132,7 @@
     <string name="form_cd">CP</string>
     <string name="title_web_defects">Web Defects</string>
     <string name="stiffener_0_defect">Stiffener 0 Defect</string>
+    <string name="Button_previous">previous</string>
 
     <string-array name="baysDirection">
         <item>Select Direction</item>

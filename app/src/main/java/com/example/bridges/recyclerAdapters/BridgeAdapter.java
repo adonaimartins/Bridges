@@ -1,22 +1,19 @@
 package com.example.bridges.recyclerAdapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bridges.Bridges_Lobby;
-import com.example.bridges.MainActivity;
 import com.example.bridges.Model.Bridges;
 import com.example.bridges.R;
-import java.util.ArrayList;
 
 public class BridgeAdapter extends ListAdapter<Bridges, BridgeAdapter.BridgesViewHolder> {
 
@@ -35,30 +32,32 @@ public class BridgeAdapter extends ListAdapter<Bridges, BridgeAdapter.BridgesVie
     public static final DiffUtil.ItemCallback<Bridges> DIFF_CALLBACK = new DiffUtil.ItemCallback<Bridges>() {
         @Override
         public boolean areItemsTheSame(@NonNull Bridges oldItem, @NonNull Bridges newItem) {
-            return oldItem.getBridge_id() == oldItem.getBridge_id();
+            return oldItem.getBridge_id() == newItem.getBridge_id();
         }
 
         @Override
         public boolean areContentsTheSame(@NonNull Bridges oldItem, @NonNull Bridges newItem) {
             return
+                    (oldItem.getBridge_id() == newItem.getBridge_id()) &&
                     (oldItem.getSurveyor_name().equals(newItem.getSurveyor_name())) &&
                     (oldItem.getSurveyor_lastName().equals(newItem.getSurveyor_lastName())) &&
                     (oldItem.getStructure_name().equals(newItem.getStructure_name())) &&
                     (oldItem.getStructure_location().equals(newItem.getStructure_location())) &&
                     (oldItem.getStructure_number().equals(newItem.getStructure_number())) &&
                     (oldItem.getMileageMiles() == newItem.getMileageMiles()) &&
-                    (oldItem.getMileageYards() == newItem.getMileageYards()) &&
-                    (oldItem.getSync_status() == newItem.getSync_status());
+                    (oldItem.getMileageYards() == newItem.getMileageYards());
         }
     };
     @NonNull
     @Override
     public BridgesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.d("ERROR", " error CREATE");
         return new BridgesViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.table_bridge_row, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull BridgesViewHolder holder, int position) {
+        Log.d("ERROR", " error BIND");
         Bridges bridge = getItem(position);
         holder.row_bridgeId.setText(Integer.toString(bridge.getBridge_id()));
         holder.row_bridge_name.setText(bridge.getStructure_name());
@@ -112,16 +111,15 @@ public class BridgeAdapter extends ListAdapter<Bridges, BridgeAdapter.BridgesVie
         }
     }
 
-
     public interface OnItemClickListener { //on the other sheet we will only have the Model object
         void onItemClickListener(Bridges bridge);
     }
 
-    public void setEditOnClickListener(OnItemClickListener onClickListener){
+    public void setDeleteOnClickListener(OnItemClickListener onClickListener){
         this.deleteOnClickListener = onClickListener;
     }
 
-    public void setDeleteOnClickListener(OnItemClickListener onClickListener){
+    public void setEditOnClickListener(OnItemClickListener onClickListener){
         this.editOnClickListener = onClickListener;
     }
 }
