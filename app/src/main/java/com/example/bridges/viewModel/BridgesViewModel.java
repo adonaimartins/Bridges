@@ -42,6 +42,10 @@ public class BridgesViewModel extends AndroidViewModel {
     }
 
     public Bridges getBridgeByID(int id){
-        return repository.selectBrigeById(id);
+    Bridges bridge = repository.selectBrigeById(id);
+
+        System.out.println("viewModel adonai " + bridge);
+
+        return bridge;
     }
 }

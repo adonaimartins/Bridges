@@ -8,6 +8,7 @@ import com.example.bridges.dao.BridgesDao;
 import com.example.bridges.database.BridgesDatabase;
 import com.example.bridges.database.DatabaseContract;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class BridgesRepository {
 
@@ -15,10 +16,10 @@ public class BridgesRepository {
     private LiveData<List<Bridges>> allBridges;
 
     public BridgesRepository(Application application){
-        BridgesDatabase bridgesDatabase = BridgesDatabase.getInstance(application);
+        BridgesDatabase bridgesDatabase = BridgesDatabase.getInstance(application.getApplicationContext());
         bridgesDao = bridgesDatabase.bridgesDao();
         allBridges = bridgesDao.getAllBridges();
-
+        //System.out.println("Arriba");
     }
 
     public void insert(Bridges bridge) {
@@ -35,8 +36,33 @@ public class BridgesRepository {
     }
     public Bridges selectBrigeById(int id) {
         BridgeByIdAsyncTask asyncTask = new BridgeByIdAsyncTask(bridgesDao, id);
-        asyncTask.execute();
-        return asyncTask.getBridge();
+        try {
+            asyncTask.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //bridgesDao.getBrigeById(id);
+        Bridges bridge  = asyncTask.getBridge();
+
+        System.out.println("Adonai " + "Arriba " + bridge +  "  " + id);
+        return bridge;
+
+        /*
+        final Bridges[] bridge = new Bridges[1];
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                bridge[0] = bridgesDao.getBrigeById(id);
+                System.out.println("Adonai " + " repository" + bridge[0] +  "  " + id);
+
+            }
+        }).start();
+
+        System.out.println("AFTER THREAD");
+
+        return bridge[0];*/
     }
 /*
     public LiveData<List<Bridges>> getAllBridges() {
@@ -47,6 +73,7 @@ public class BridgesRepository {
 
     public LiveData<List<Bridges>> getAllBridges() {
        // System.out.println("aqui" + allBridges.getValue());
+        //System.out.println("Abajo");
 
         return allBridges;
 
@@ -77,12 +104,15 @@ public class BridgesRepository {
                 case DatabaseContract.DELETE_ALL:
                     bridgesDao.deleteAllBridges();
                     break;
+                case DatabaseContract.GET_ALL:
+                    bridgesDao.getAllBridges();
+                    break;
             }
             return null;
         }
     }
 
-    private static class BridgeByIdAsyncTask extends AsyncTask<Void, Void, Void> {
+    private static class BridgeByIdAsyncTask extends AsyncTask<Bridges, Void, Void> {
         private BridgesDao bridgesDao;
         private int id;
         private Bridges bridge;
@@ -90,6 +120,8 @@ public class BridgesRepository {
         public BridgeByIdAsyncTask(BridgesDao bridgesDao, int id){
             this.bridgesDao = bridgesDao;
             this.id = id;
+            //System.out.println("Adonai " + "Constructor " + bridge +  "  " + id + " "+ bridge);
+
         }
 
         public Bridges getBridge(){
@@ -97,8 +129,9 @@ public class BridgesRepository {
         }
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected Void doInBackground(Bridges... voids) {
             bridge = bridgesDao.getBrigeById(id);
+            System.out.println("Adonai " + "Method " + bridge +  "  " + id + " "+ bridge.getSurveyor_name());
             return null;
         }
     }

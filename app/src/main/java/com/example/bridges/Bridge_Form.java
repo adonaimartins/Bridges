@@ -69,7 +69,7 @@ public class Bridge_Form extends AppCompatActivity {
         if (intentBridgesLobby.hasExtra(EXTRA_ID)){
             setTitle("Edit Bridge");
 
-            BridgesViewModel bridgesViewModel = ViewModelProviders.of(this).get(BridgesViewModel.class);
+            //BridgesViewModel bridgesViewModel = ViewModelProviders.of(this).get(BridgesViewModel.class);
 
             bridge = bridgesViewModel.getBridgeByID(bridgeId);
 
@@ -78,8 +78,8 @@ public class Bridge_Form extends AppCompatActivity {
             input_structureName_p11.setText(bridge.getStructure_name());
             input_structureLocation_p11.setText(bridge.getStructure_location());
             input_structureNumber_p11.setText(bridge.getStructure_number());
-            input_mileage_miles_p11.setText(bridge.getMileageMiles());
-            input_mileage_yards_p11.setText(bridge.getMileageYards());
+            input_mileage_miles_p11.setText(Integer.toString(bridge.getMileageMiles()) );
+            input_mileage_yards_p11.setText(Integer.toString(bridge.getMileageYards()));
         }else{
             setTitle("Add Bridge");
         }
@@ -118,10 +118,12 @@ public class Bridge_Form extends AppCompatActivity {
 
 
         if (intentBridgesLobby.hasExtra(EXTRA_ID)) {
-
+            System.out.println("ARRIBA SENT BACK");
             bridge.setBridge_id(bridgeId);
             bridgesViewModel.update(bridge);
         }else{
+            System.out.println("ABAJO SENT BACK");
+
             bridgesViewModel.insert(bridge);
         }
     }

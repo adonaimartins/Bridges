@@ -31,7 +31,7 @@ public class Bridges_Lobby extends AppCompatActivity {
 
     RecyclerView recyclerView;
     BridgesViewModel bridgesViewModel; //this is for the database
-    List<Bridges> allBridges; //this is for testing - delete later
+    //List<Bridges> allBridges; //this is for testing - delete later
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class Bridges_Lobby extends AppCompatActivity {
 
 
         bridgesViewModel = ViewModelProviders.of(this).get(BridgesViewModel.class);
-        loadTableData();//testing method
+        //loadTableData();//testing method
 
         recyclerView = findViewById(R.id.bridges_data_p12);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -57,16 +57,17 @@ public class Bridges_Lobby extends AppCompatActivity {
         recyclerView.setAdapter(bridgeAdapter2);
         //ridgeAdapter2.setBridgesList();
 
-        System.out.println(" bridge name ");
+        //System.out.println(" bridge name ");
 
         bridgesViewModel.getAllBridges().observe(this, new Observer<List<Bridges>>() {
             @Override
             public void onChanged(List<Bridges> bridgesList) {
 
-                System.out.println(" bridge name " + bridgesList.size());
+                //System.out.println(" bridge name " + bridgesList.size());
 
                 bridgeAdapter2.setBridgesList(bridgesList);
                 bridgeAdapter2.notifyDataSetChanged();
+
 /*
                 bridgeAdapter.submitList(bridgesList);
                 System.out.println(" bridge aqui " + bridgesList.size());
@@ -84,11 +85,10 @@ public class Bridges_Lobby extends AppCompatActivity {
 
         bridgeAdapter2.setEditOnClickListener(new BridgeAdapter2.OnItemClickListener() {
             @Override
-            public void onItemClickListener(Bridges bridge) {/*
+            public void onItemClickListener(Bridges bridge) {
                 Intent intent = new Intent(Bridges_Lobby.this, Bridge_Form.class);
                 intent.putExtra(Bridge_Form.EXTRA_ID, bridge.getBridge_id());
-                startActivity(intent);*/
-               // bridgesViewModel.delete(bridgeAdapter.getBridgesAt(viewHolder.getAdapterPosition()));
+                startActivity(intent);
                 Toast.makeText(Bridges_Lobby.this, "Note Edited ", Toast.LENGTH_SHORT).show();
 
             }
@@ -97,8 +97,6 @@ public class Bridges_Lobby extends AppCompatActivity {
         bridgeAdapter2.setDeleteOnClickListener(new BridgeAdapter2.OnItemClickListener() {
             @Override
             public void onItemClickListener(Bridges bridge) {
-
-
                 bridgesViewModel.delete(bridge);
                 Toast.makeText(Bridges_Lobby.this, "Note Deleted ", Toast.LENGTH_SHORT).show();
             }
@@ -161,6 +159,7 @@ public class Bridges_Lobby extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /*
     private void loadTableData(){ //method is for testing, load from database should replace it
 
         allBridges = new ArrayList<Bridges>();
@@ -197,7 +196,7 @@ public class Bridges_Lobby extends AppCompatActivity {
         allBridges.add(bridge3);
 
 
-    }
+    }*/
 
 
 }

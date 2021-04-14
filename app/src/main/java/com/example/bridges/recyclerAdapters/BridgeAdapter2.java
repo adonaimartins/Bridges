@@ -44,12 +44,14 @@ public class BridgeAdapter2 extends RecyclerView.Adapter<BridgeAdapter2.BridgeVi
     @NonNull
     @Override
     public BridgeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        System.out.println(" CALL ON CREATE ADONAI");
         return new BridgeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.table_bridge_row, parent, false)); //we return inner class. we pass the layout container.
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull BridgeViewHolder holder, int position) {
+        System.out.println(" CALL ON CREATE ADONAI");
         Bridges bridge = bridgesList.get(position);
         holder.row_bridgeId.setText(Integer.toString(bridge.getBridge_id()));
         holder.row_bridge_name.setText(bridge.getStructure_name());
