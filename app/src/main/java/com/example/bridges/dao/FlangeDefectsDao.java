@@ -8,7 +8,9 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
+import com.example.bridges.Model.AnglesRivetsDefects;
 import com.example.bridges.Model.FlangeDefects;
+import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.List;
 
@@ -28,7 +30,7 @@ public interface FlangeDefectsDao {
     void deleteAllForeignKeyMatchingParentKey(int parentKey);
 
     @Query("SELECT * FROM FlangeDefects WHERE flange_id = :parentKey ORDER BY defect_id DESC")
-    LiveData<List<FlangeDefects>> getAllForeignKeyMatchingParentKey(int parentKey);
+    ListenableFuture<List<FlangeDefects>> getAllForeignKeyMatchingParentKey(int parentKey);
 
 
 ///////////////////////////////////////////////////////////////////
@@ -41,5 +43,9 @@ public interface FlangeDefectsDao {
     ///in case I want to delete all the data
     @Query("DELETE FROM FlangeDefects")
     void deleteAll();
+
+    @Query("SELECT * FROM FlangeDefects WHERE defect_id =:id" )
+    ListenableFuture<FlangeDefects> getFlangeDefectsById(int id);
+
 
 }

@@ -7,7 +7,9 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.bridges.Model.AnglesRivetsDefects;
 import com.example.bridges.Model.CPs;
+import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.List;
 
@@ -27,7 +29,7 @@ public interface CPsDao {
     void deleteAllForeignKeyMatchingParentKey(int parentKey);
 
     @Query("SELECT * FROM CPs WHERE girder_id = :parentKey ORDER BY cp_id DESC")
-    LiveData<List<CPs>> getAllForeignKeyMatchingParentKey(int parentKey);
+    ListenableFuture<List<CPs>> getAllForeignKeyMatchingParentKey(int parentKey);
 
 
 ///////////////////////////////////////////////////////////////////
@@ -40,5 +42,9 @@ public interface CPsDao {
     ///in case I want to delete all the data
     @Query("DELETE FROM CPs")
     void deleteAll();
+
+    @Query("SELECT * FROM CPs WHERE cp_id =:id" )
+    ListenableFuture<CPs> getCPsById(int id);
+
 
 }

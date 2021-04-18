@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bridges.Model.Bridges;
 import com.example.bridges.R;
+import com.example.bridges.database.DatabaseContract;
 
 import java.util.List;
 
@@ -44,26 +46,32 @@ public class BridgeAdapter2 extends RecyclerView.Adapter<BridgeAdapter2.BridgeVi
     @NonNull
     @Override
     public BridgeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        System.out.println(" CALL ON CREATE ADONAI");
+        //System.out.println(" CALL ON CREATE ADONAI");
         return new BridgeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.table_bridge_row, parent, false)); //we return inner class. we pass the layout container.
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull BridgeViewHolder holder, int position) {
-        System.out.println(" CALL ON CREATE ADONAI");
+        //System.out.println(" CALL ON CREATE ADONAI");
         Bridges bridge = bridgesList.get(position);
         holder.row_bridgeId.setText(Integer.toString(bridge.getBridge_id()));
         holder.row_bridge_name.setText(bridge.getStructure_name());
         holder.row_bridge_location.setText(bridge.getStructure_location());
         holder.row_bridge_number.setText(bridge.getStructure_number());
+
+        ////here we change the image to each ViewHolder
+        if(bridge.getSync_status() == DatabaseContract.SYNC_STATUS_OK){
+            holder.sync_Status.setImageResource(R.drawable.ok);
+        }else{
+            holder.sync_Status.setImageResource(R.drawable.sync);
+        }
     }
 
     @Override
     public int getItemCount() {
         return bridgesList.size();
     }
-
 
 
     class BridgeViewHolder extends RecyclerView.ViewHolder {
@@ -73,6 +81,7 @@ public class BridgeAdapter2 extends RecyclerView.Adapter<BridgeAdapter2.BridgeVi
         private TextView row_bridge_number;
         private Button row_editBridge;
         private Button row_deleteBridge;
+        private ImageView sync_Status;
 
         public BridgeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,6 +91,7 @@ public class BridgeAdapter2 extends RecyclerView.Adapter<BridgeAdapter2.BridgeVi
             row_bridge_number = itemView.findViewById(R.id.row_bridge_number);
             row_editBridge = itemView.findViewById(R.id.row_editBridge);
             row_deleteBridge = itemView.findViewById(R.id.row_deleteBridge);
+            sync_Status = itemView.findViewById(R.id.imageSync);
 
 
             row_editBridge.setOnClickListener(new View.OnClickListener() {

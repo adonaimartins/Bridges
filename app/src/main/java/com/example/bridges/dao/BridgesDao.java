@@ -8,7 +8,10 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.bridges.Model.Bridges;
+import com.example.bridges.database.DatabaseContract;
+import com.google.common.util.concurrent.ListenableFuture;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -24,7 +27,7 @@ public interface BridgesDao {
     void delete(Bridges bridge);
 
     @Query("SELECT * FROM Bridges WHERE bridge_id =:id" )
-    Bridges getBrigeById(int id);
+    ListenableFuture<Bridges> getBridgeById(int id);
 
     @Query("DELETE FROM Bridges")
     void deleteAllBridges();
@@ -32,4 +35,7 @@ public interface BridgesDao {
     @Query("SELECT * FROM Bridges ORDER BY bridge_id DESC")
     LiveData<List<Bridges>> getAllBridges();
 
+
+    @Query("SELECT * FROM Bridges WHERE sync_status = " + DatabaseContract.SYNC_STATUS_FAILED + " ORDER BY bridge_id DESC")
+    ListenableFuture<List<Bridges>> getAllNonSyncBridges();
 }

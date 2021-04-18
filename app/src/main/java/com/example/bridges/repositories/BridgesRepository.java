@@ -7,6 +7,8 @@ import com.example.bridges.Model.Bridges;
 import com.example.bridges.dao.BridgesDao;
 import com.example.bridges.database.BridgesDatabase;
 import com.example.bridges.database.DatabaseContract;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -19,69 +21,88 @@ public class BridgesRepository {
         BridgesDatabase bridgesDatabase = BridgesDatabase.getInstance(application.getApplicationContext());
         bridgesDao = bridgesDatabase.bridgesDao();
         allBridges = bridgesDao.getAllBridges();
-        //System.out.println("Arriba");
     }
 
     public void insert(Bridges bridge) {
-        new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.INSERT).execute(bridge);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                bridgesDao.insert(bridge);
+            }
+        }).start();
+
+       // new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.INSERT).execute(bridge);
     }
     public void update(Bridges bridge) {
-        new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.UPDATE).execute(bridge);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                bridgesDao.update(bridge);
+            }
+        }).start();
+
+       // new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.UPDATE).execute(bridge);
     }
     public void delete(Bridges bridge) {
-        new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.DELETE).execute(bridge);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                bridgesDao.delete(bridge);
+            }
+        }).start();
+        //new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.DELETE).execute(bridge);
     }
     public void deleteAllBridges() {
-        new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.DELETE_ALL).execute((Bridges)null);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                bridgesDao.deleteAllBridges();
+            }
+        }).start();
+        //new BridgeOpeationAsyncTask(bridgesDao, DatabaseContract.DELETE_ALL).execute((Bridges)null);
     }
     public Bridges selectBrigeById(int id) {
-        BridgeByIdAsyncTask asyncTask = new BridgeByIdAsyncTask(bridgesDao, id);
+        Bridges bridge = null;
         try {
-            asyncTask.execute().get();
+            bridge = bridgesDao.getBridgeById(id).get(); //get to wait
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //bridgesDao.getBrigeById(id);
-        Bridges bridge  = asyncTask.getBridge();
-
-        System.out.println("Adonai " + "Arriba " + bridge +  "  " + id);
         return bridge;
-
-        /*
-        final Bridges[] bridge = new Bridges[1];
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                bridge[0] = bridgesDao.getBrigeById(id);
-                System.out.println("Adonai " + " repository" + bridge[0] +  "  " + id);
-
-            }
-        }).start();
-
-        System.out.println("AFTER THREAD");
-
-        return bridge[0];*/
     }
-/*
-    public LiveData<List<Bridges>> getAllBridges() {
-        BridgeGetAllAsyncTask asyncTask = new BridgeGetAllAsyncTask();
-        asyncTask.execute();
-        return asyncTask.getAllBridges();
-    }*/
+
+
+    public List<Bridges> getAllNonSyncBridges(){
+        List<Bridges> allNonSyncBridges = new ArrayList<Bridges>();
+        try {
+            allNonSyncBridges.addAll(bridgesDao.getAllNonSyncBridges().get());
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return  allNonSyncBridges;
+    }
 
     public LiveData<List<Bridges>> getAllBridges() {
-       // System.out.println("aqui" + allBridges.getValue());
-        //System.out.println("Abajo");
-
         return allBridges;
-
     }
 
+
+
+
+
+    /*
     private static class BridgeOpeationAsyncTask extends AsyncTask<Bridges, Void, Void> {
         private BridgesDao bridgesDao;
         private int type;
+        private static List<Bridges> allNonSyncBridges;
 
         public BridgeOpeationAsyncTask(BridgesDao bridgesDao, int type){
             this.bridgesDao = bridgesDao;
@@ -90,7 +111,6 @@ public class BridgesRepository {
 
         @Override
         protected Void doInBackground(Bridges... bridges) {
-
             switch(type){
                 case DatabaseContract.INSERT:
                     bridgesDao.insert(bridges[0]);
@@ -104,50 +124,12 @@ public class BridgesRepository {
                 case DatabaseContract.DELETE_ALL:
                     bridgesDao.deleteAllBridges();
                     break;
-                case DatabaseContract.GET_ALL:
-                    bridgesDao.getAllBridges();
-                    break;
             }
             return null;
         }
-    }
 
-    private static class BridgeByIdAsyncTask extends AsyncTask<Bridges, Void, Void> {
-        private BridgesDao bridgesDao;
-        private int id;
-        private Bridges bridge;
-
-        public BridgeByIdAsyncTask(BridgesDao bridgesDao, int id){
-            this.bridgesDao = bridgesDao;
-            this.id = id;
-            //System.out.println("Adonai " + "Constructor " + bridge +  "  " + id + " "+ bridge);
-
-        }
-
-        public Bridges getBridge(){
-            return bridge;
-        }
-
-        @Override
-        protected Void doInBackground(Bridges... voids) {
-            bridge = bridgesDao.getBrigeById(id);
-            System.out.println("Adonai " + "Method " + bridge +  "  " + id + " "+ bridge.getSurveyor_name());
-            return null;
-        }
-    }
-/*
-    private static class BridgeGetAllAsyncTask extends AsyncTask<Void, Void, Void> {
-        private BridgesDao bridgesDao;
-        LiveData<List<Bridges>> bridges;
-
-        public LiveData<List<Bridges>> getAllBridges(){
-            return bridges;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            bridges = bridgesDao.getAllBridges();
-            return null;
+        public List<Bridges> getAllNonSyncBridges(){
+            return allNonSyncBridges;
         }
     }*/
 }

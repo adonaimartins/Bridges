@@ -6,8 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import com.example.bridges.Model.Bridges;
+import com.example.bridges.database.DatabaseContract;
 import com.example.bridges.repositories.BridgesRepository;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class BridgesViewModel extends AndroidViewModel {
 
@@ -18,7 +20,6 @@ public class BridgesViewModel extends AndroidViewModel {
         super(application);
         repository = new BridgesRepository(application);
         allBridges = repository.getAllBridges();
-
     }
 
     public void insert(Bridges bridge){
@@ -42,10 +43,10 @@ public class BridgesViewModel extends AndroidViewModel {
     }
 
     public Bridges getBridgeByID(int id){
-    Bridges bridge = repository.selectBrigeById(id);
+        return repository.selectBrigeById(id);
+    }
 
-        System.out.println("viewModel adonai " + bridge);
-
-        return bridge;
+    public List<Bridges> getAllNonSyncBridges(){
+        return repository.getAllNonSyncBridges();
     }
 }

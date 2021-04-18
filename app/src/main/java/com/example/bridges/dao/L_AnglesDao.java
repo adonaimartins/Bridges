@@ -8,7 +8,9 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
+import com.example.bridges.Model.AnglesRivetsDefects;
 import com.example.bridges.Model.L_Angles;
+import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ public interface L_AnglesDao {
         void deleteAllForeignKeyMatchingParentKey(int parentKey);
 
         @Query("SELECT * FROM L_Angles WHERE stiffener_id = :parentKey ORDER BY l_angle_id DESC")
-        LiveData<List<L_Angles>> getAllForeignKeyMatchingParentKey(int parentKey);
+        ListenableFuture<List<L_Angles>> getAllForeignKeyMatchingParentKey(int parentKey);
 
 
 ///////////////////////////////////////////////////////////////////
@@ -43,4 +45,8 @@ public interface L_AnglesDao {
         @Query("DELETE FROM L_Angles")
         void deleteAll();
 
-    }
+        @Query("SELECT * FROM L_Angles WHERE l_angle_id =:id" )
+        ListenableFuture<L_Angles> getL_AnglesById(int id);
+
+
+}

@@ -46,6 +46,10 @@ public class Bridge_Form extends AppCompatActivity {
     Intent intentBridgesLobby;
     private int bridgeId;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

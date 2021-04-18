@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -68,4 +68,10 @@
         android:padding="0sp"
         android:text="@string/table_button_del"
         android:textSize="8sp" />
+    <ImageView
+        android:id="@+id/imageSync"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ok" />
 </LinearLayout>

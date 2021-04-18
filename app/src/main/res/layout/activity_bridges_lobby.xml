@@ -67,7 +67,6 @@
 
                 <TextView
                     android:id="@+id/table_columnName_selectBridge_p12"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="0"
                     android:layout_weight="1"
@@ -80,7 +79,6 @@
 
                 <TextView
                     android:id="@+id/table_columnName_structure_name_p12"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_weight="1"
@@ -93,7 +91,6 @@
 
                 <TextView
                     android:id="@+id/table_columnName_location_p12"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_weight="1"
@@ -106,7 +103,6 @@
 
                 <TextView
                     android:id="@+id/table_columnName_number_p12"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="3"
                     android:layout_weight="1"
@@ -119,9 +115,9 @@
 
                 <TextView
                     android:id="@+id/textView12_p12"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="4"
+                    android:layout_weight="1"
                     android:layout_marginEnd="10dp"
                     android:gravity="center"
                     android:padding="0sp"
@@ -132,9 +128,9 @@
 
                 <TextView
                     android:id="@+id/title_bridge_p12"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="5"
+                    android:layout_weight="1"
                     android:layout_marginEnd="10dp"
                     android:gravity="center"
                     android:padding="0sp"
@@ -152,6 +148,16 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/sync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_sync"
+        android:onClick="syncSQLiteMySQLDB"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAdd_p12"
+        app:layout_constraintStart_toEndOf="@+id/buttonLogout_p12"
+        app:layout_constraintTop_toTopOf="@+id/buttonLogout_p12" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

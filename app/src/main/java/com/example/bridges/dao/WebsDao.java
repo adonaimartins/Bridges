@@ -8,7 +8,9 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
+import com.example.bridges.Model.AnglesRivetsDefects;
 import com.example.bridges.Model.Webs;
+import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.List;
 
@@ -28,7 +30,7 @@ public interface WebsDao {
     void deleteAllForeignKeyMatchingParentKey(int parentKey);
 
     @Query("SELECT * FROM Webs WHERE girder_id = :parentKey ORDER BY web_id DESC")
-    LiveData<List<Webs>> getAllForeignKeyMatchingParentKey(int parentKey);
+    ListenableFuture<List<Webs>> getAllForeignKeyMatchingParentKey(int parentKey);
 
 
 ///////////////////////////////////////////////////////////////////
@@ -41,6 +43,10 @@ public interface WebsDao {
     ///in case I want to delete all the data
     @Query("DELETE FROM Webs")
     void deleteAll();
+
+    @Query("SELECT * FROM Webs WHERE web_id =:id" )
+    ListenableFuture<Webs> getWebsById(int id);
+
 
 
 }

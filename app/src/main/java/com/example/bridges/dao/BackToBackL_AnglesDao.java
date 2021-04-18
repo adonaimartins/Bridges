@@ -8,7 +8,9 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
+import com.example.bridges.Model.AnglesRivetsDefects;
 import com.example.bridges.Model.BackToBackL_Angles;
+import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.List;
 
@@ -28,7 +30,7 @@ public interface BackToBackL_AnglesDao {
     void deleteAllForeignKeyMatchingParentKey(int parentKey);
 
     @Query("SELECT * FROM BackToBackL_Angles WHERE stiffener_id = :parentKey ORDER BY b2b_l_angle_id DESC")
-    LiveData<List<BackToBackL_Angles>> getAllForeignKeyMatchingParentKey(int parentKey);
+    ListenableFuture<List<BackToBackL_Angles>> getAllForeignKeyMatchingParentKey(int parentKey);
 
 
 ///////////////////////////////////////////////////////////////////
@@ -41,4 +43,8 @@ public interface BackToBackL_AnglesDao {
     ///in case I want to delete all the data
     @Query("DELETE FROM BackToBackL_Angles")
     void deleteAll();
+
+    @Query("SELECT * FROM BackToBackL_Angles WHERE b2b_l_angle_id =:id" )
+    ListenableFuture<BackToBackL_Angles> getBackToBackL_AnglesById(int id);
+
 }

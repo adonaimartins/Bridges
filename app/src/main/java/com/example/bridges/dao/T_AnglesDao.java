@@ -8,7 +8,9 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
+import com.example.bridges.Model.AnglesRivetsDefects;
 import com.example.bridges.Model.T_Angles;
+import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.List;
 
@@ -28,7 +30,7 @@ public interface T_AnglesDao {
     void deleteAllForeignKeyMatchingParentKey(int parentKey);
 
     @Query("SELECT * FROM T_Angles WHERE stiffener_id = :parentKey ORDER BY t_angle_id DESC")
-    LiveData<List<T_Angles>> getAllForeignKeyMatchingParentKey(int parentKey);
+    ListenableFuture<List<T_Angles>> getAllForeignKeyMatchingParentKey(int parentKey);
 
 
 ///////////////////////////////////////////////////////////////////
@@ -41,5 +43,9 @@ public interface T_AnglesDao {
     ///in case I want to delete all the data
     @Query("DELETE FROM T_Angles")
     void deleteAll();
+
+    @Query("SELECT * FROM T_Angles WHERE t_angle_id =:id" )
+    ListenableFuture<T_Angles> getT_AnglesById(int id);
+
 
 }

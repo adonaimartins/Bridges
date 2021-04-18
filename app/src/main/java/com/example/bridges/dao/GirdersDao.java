@@ -8,7 +8,9 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
+import com.example.bridges.Model.AnglesRivetsDefects;
 import com.example.bridges.Model.Girders;
+import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ public interface GirdersDao {
     void deleteAllForeignKeyMatchingParentKey(int parentKey);
 
     @Query("SELECT * FROM Girders WHERE deck_id = :parentKey ORDER BY girder_id DESC")
-    LiveData<List<Girders>> getAllForeignKeyMatchingParentKey(int parentKey);
+    ListenableFuture<List<Girders>> getAllForeignKeyMatchingParentKey(int parentKey);
 
 
 ///////////////////////////////////////////////////////////////////
@@ -42,4 +44,8 @@ public interface GirdersDao {
     ///in case I want to delete all the data
     @Query("DELETE FROM Girders")
     void deleteAll();
+
+    @Query("SELECT * FROM Girders WHERE girder_id =:id")
+    ListenableFuture<Girders> getGirdersById(int id);
+
 }
